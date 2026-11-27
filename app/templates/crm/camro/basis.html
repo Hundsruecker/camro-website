@@ -1,0 +1,27 @@
+{% load static %}<!doctype html>
+<html lang="{{ camro_lang|default:"de" }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block titel %}{% endblock %} – CAMRO</title>
+<link rel="icon" href="{% static "crm/img/camro-favicon-32.png" %}" sizes="32x32">
+<link rel="apple-touch-icon" href="{% static "crm/img/camro-apple-touch-icon-180.png" %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static "crm/camro-app.css" %}">
+{% block kopf_extra %}{% endblock %}
+</head>
+<body class="camro-app">
+{% block camro_kopf %}{% include "crm/camro/_kopf.html" %}{% endblock %}
+<main id="main">
+  <section class="wrap page-head">
+    <h1>{% block ueberschrift %}{% endblock %}</h1>
+    {% block einleitung %}{% endblock %}
+  </section>
+  {% block inhalt %}{% endblock %}
+</main>
+{% include "crm/camro/_fuss.html" %}
+{% block skripte %}{% endblock %}
+</body>
+</html>

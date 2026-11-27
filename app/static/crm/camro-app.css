@@ -1,0 +1,132 @@
+/* CAMRO – Gestaltung der öffentlichen App-Seiten (app.camro.ro), passend zu camro.ro.
+   Gilt nur für Seiten mit <body class="camro-app">. Admin-Seiten bleiben unberührt. */
+
+.camro-app{
+  --ink:#1B2440; --ink-2:#2A3558; --pine:#2E5E4E; --pine-soft:#E4EEEA; --raps:#E2B33C; --raps-soft:#F7EBC8;
+  --stone:#E1E6E3; --paper:#F4F6F5; --line:#D5DCD9; --muted:#46516A; --text2:#36415A; --white:#FFFFFF;
+  --on-ink:#D9DEEA; --ink-line:#333E5E; --err:#A3261E; --err-soft:#FBEDEB;
+  margin:0;padding:0;background:var(--paper);color:var(--ink);
+  font-family:Commissioner,system-ui,sans-serif;font-size:17px;line-height:1.55;
+}
+.camro-app *,.camro-app *::before,.camro-app *::after{box-sizing:border-box}
+.camro-app a{color:var(--ink)}
+.camro-app a:hover{color:var(--pine)}
+.camro-app a:focus-visible,.camro-app button:focus-visible{outline:3px solid var(--raps);outline-offset:3px}
+.camro-app p{margin:0}
+.camro-app h1,.camro-app h2,.camro-app h3{margin:0}
+.camro-app .skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--white);padding:10px 16px;border-radius:6px;z-index:10}
+.camro-app .skip:focus{left:16px}
+.camro-app .wrap{max-width:none;margin:0;padding-left:clamp(16px,4vw,96px);padding-right:clamp(16px,4vw,96px)}
+
+/* Kopfzeile – wie camro.ro */
+.camro-app .head{border-bottom:1px solid var(--line);background:var(--paper);color:var(--ink);padding:0;display:block}
+.camro-app .head .wrap{padding-top:18px;padding-bottom:18px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 32px}
+.camro-app .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+.camro-app .brand b{font-weight:800;font-size:24px;letter-spacing:-.01em}
+.camro-app .nav{flex:1 1 520px;display:flex;flex-wrap:wrap;gap:4px 22px;font-size:15px;font-weight:500}
+.camro-app .nav a{text-decoration:none;padding:10px 0;border-bottom:2px solid transparent}
+.camro-app .nav a[aria-current="page"]{border-bottom-color:var(--raps);font-weight:600}
+.camro-app .lang{display:flex;padding:3px;gap:2px;border-radius:999px;background:var(--stone);margin-left:0}
+.camro-app .lang a{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border-radius:999px;font:600 14px/1 Commissioner,system-ui,sans-serif;color:var(--ink);text-decoration:none}
+.camro-app .lang a:hover{background:var(--white);color:var(--ink)}
+.camro-app .lang a[aria-current="true"]{background:var(--ink);color:var(--white)}
+
+/* Seitenkopf */
+.camro-app main{max-width:none;margin:0;padding:0}
+.camro-app .page-head{padding-top:clamp(40px,6vw,80px);padding-bottom:clamp(32px,4vw,56px);border-bottom:1px solid var(--line)}
+.camro-app .page-head h1{font-weight:800;font-size:clamp(32px,4.6vw,60px);line-height:1.04;letter-spacing:-.025em;margin-bottom:22px;max-width:16em;hyphens:auto;overflow-wrap:break-word}
+.camro-app .intro{background:none;box-shadow:none;border-radius:0;padding:0;margin:0;max-width:44em}
+.camro-app .intro p{font-size:19px;line-height:1.55}
+.camro-app .intro p + p{margin-top:12px}
+
+/* Formularbereich – volle Breite */
+.camro-app .app-form{background:var(--white);padding-top:clamp(40px,5vw,72px);padding-bottom:clamp(56px,7vw,96px)}
+.camro-app .app-form form{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:28px 32px;align-items:start;margin:0}
+.camro-app .app-form form > *{grid-column:1 / -1;min-width:0}
+@media (min-width:760px){
+  .camro-app .app-form form > .frage{grid-column:span 6}
+}
+@media (min-width:1300px){
+  .camro-app .app-form form > .frage{grid-column:span 4}
+}
+/* Fragen mit Auswahllisten, Freitext oder Hinweisen nehmen immer die ganze Zeile */
+.camro-app .app-form form > .frage:has(.optionen),
+.camro-app .app-form form > .frage:has(textarea),
+.camro-app .app-form form > .frage.voll{grid-column:1 / -1}
+
+.camro-app .hinweis-pflicht{font-size:14px;color:var(--muted);margin:0}
+.camro-app .frage{background:none;box-shadow:none;border-radius:0;padding:0;margin:0}
+.camro-app .frage label.haupt,.camro-app .frage > label:first-child{display:block;font-weight:600;font-size:15px;line-height:1.35;margin-bottom:8px;color:var(--ink)}
+.camro-app .frage input[type=text],.camro-app .frage input[type=email],.camro-app .frage input[type=number],
+.camro-app .frage input[type=date],.camro-app .frage input[type=tel],.camro-app .frage input[type=url],
+.camro-app .frage select,.camro-app .frage textarea{
+  display:block;width:100%;min-height:52px;padding:12px 14px;margin:0;
+  border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);
+  font:400 17px/1.4 Commissioner,system-ui,sans-serif;
+  transition:border-color .15s,background-color .15s;
+}
+.camro-app .frage textarea{min-height:150px;resize:vertical}
+.camro-app .frage select{appearance:none;padding-right:44px;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 6l4.5 4.5L12.5 6' fill='none' stroke='%231B2440' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;background-size:16px}
+.camro-app .frage input:hover,.camro-app .frage select:hover,.camro-app .frage textarea:hover{border-color:#AEB9B4}
+.camro-app .frage input:focus,.camro-app .frage select:focus,.camro-app .frage textarea:focus{outline:3px solid var(--raps);outline-offset:1px;border-color:var(--ink);background:var(--white)}
+.camro-app .frage input:disabled{color:var(--muted);background:var(--stone);border-color:var(--stone);cursor:default}
+.camro-app .modul-hinweis,.camro-app .helptext,.camro-app .frage .hilfe{display:block;margin-top:8px;font-size:14px;line-height:1.45;color:var(--muted)}
+
+/* Auswahllisten (Radio/Checkbox) als Kacheln über die ganze Breite */
+.camro-app .optionen{display:flex;flex-wrap:wrap;gap:8px}
+.camro-app .optionen label{flex:1 1 auto;display:flex;align-items:center;gap:12px;min-height:52px;margin:0;padding:12px 20px 12px 16px;
+  border:1px solid var(--line);border-radius:6px;background:var(--paper);font-weight:500;font-size:16px;line-height:1.3;cursor:pointer;overflow-wrap:break-word;
+  transition:border-color .15s,background-color .15s}
+.camro-app .optionen label:hover{border-color:var(--ink)}
+.camro-app .optionen label:has(input:checked){border-color:var(--ink);background:var(--pine-soft);box-shadow:inset 0 0 0 1px var(--ink)}
+.camro-app .optionen label:has(input:focus-visible){outline:3px solid var(--raps);outline-offset:2px}
+.camro-app .optionen input[type=radio],.camro-app .optionen input[type=checkbox]{flex:none;width:20px;height:20px;margin:0;accent-color:var(--ink);cursor:pointer}
+/* lange Listen (z. B. 42 Kreise) dichter */
+.camro-app .optionen:has(> label:nth-child(13)){display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,170px),1fr))}
+.camro-app .optionen:has(> label:nth-child(13)) label{min-height:44px;padding:8px 12px;font-size:15px}
+
+/* Fehler und Hinweise */
+.camro-app .fehler,.camro-app .errorlist{color:var(--err);font-size:15px;font-weight:500;margin:8px 0 0;padding:0;list-style:none}
+.camro-app .errorlist li{margin:0}
+.camro-app .frage:has(.fehler) input,.camro-app .frage:has(.fehler) select,.camro-app .frage:has(.fehler) textarea,
+.camro-app .frage:has(.errorlist) input,.camro-app .frage:has(.errorlist) select,.camro-app .frage:has(.errorlist) textarea{border-color:var(--err);background:var(--err-soft)}
+.camro-app .frage:has(.fehler) .optionen label{border-color:var(--err)}
+.camro-app form > .fehler,.camro-app form > .errorlist,.camro-app .errorlist.nonfield,.camro-app .fehler-allgemein{
+  padding:16px 20px;border-left:4px solid var(--err);background:var(--err-soft);border-radius:0 6px 6px 0;margin:0}
+.camro-app .bekannter-partner,.camro-app .hinweis-box{background:var(--pine-soft);border:0;border-left:4px solid var(--pine);border-radius:0 6px 6px 0;padding:16px 20px;margin:0;font-size:16px;line-height:1.5}
+.camro-app .messages{list-style:none;margin:0 0 24px;padding:0}
+.camro-app .messages li{padding:16px 20px;border-left:4px solid var(--pine);background:var(--pine-soft);border-radius:0 6px 6px 0}
+.camro-app .messages li.error{border-color:var(--err);background:var(--err-soft)}
+
+/* Absenden */
+.camro-app .absenden-btn,.camro-app .btn-dark{
+  display:inline-flex;align-items:center;justify-content:center;justify-self:start;width:auto;min-width:240px;min-height:52px;margin:8px 0 0;padding:0 32px;
+  border:0;border-radius:6px;background:var(--ink);color:var(--white);font:600 17px/1.2 Commissioner,system-ui,sans-serif;cursor:pointer;text-decoration:none}
+.camro-app .absenden-btn:hover,.camro-app .btn-dark:hover{background:var(--ink-2);color:var(--white)}
+.camro-app .btn-line{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;border:2px solid var(--ink);border-radius:6px;color:var(--ink);background:transparent;font:600 17px/1.2 Commissioner,system-ui,sans-serif;text-decoration:none}
+.camro-app .btn-line:hover{background:var(--paper);color:var(--ink)}
+@media (max-width:759px){.camro-app .absenden-btn{width:100%}}
+
+/* Bestätigungs- und Infoseiten ohne Formular */
+.camro-app .app-text{background:var(--white);padding-top:clamp(40px,5vw,72px);padding-bottom:clamp(56px,7vw,96px)}
+.camro-app .app-text p{max-width:44em;font-size:17px;line-height:1.6}
+.camro-app .app-text p + p{margin-top:14px}
+.camro-app .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+
+/* Fußzeile – wie camro.ro */
+.camro-app .foot-area{background:var(--ink);color:var(--on-ink)}
+.camro-app .foot-area a{color:var(--on-ink);text-decoration:none}
+.camro-app .foot-area a:hover{color:var(--white);text-decoration:underline}
+.camro-app .foot{padding-top:64px;padding-bottom:40px;display:flex;flex-wrap:wrap;gap:40px 56px;font-size:15px;line-height:1.6}
+.camro-app .foot h2{margin:0 0 10px;font-size:15px;font-weight:700;color:var(--white)}
+.camro-app .foot ul{list-style:none;margin:0;padding:0}
+.camro-app .foot address{font-style:normal;flex:1 1 240px;min-width:0}
+.camro-app .foot-brand{flex:2 1 300px;min-width:0}
+.camro-app .foot-brand .brand{color:var(--white)}
+.camro-app .foot-brand p{margin-top:16px;max-width:26em}
+.camro-app .foot nav{flex:1 1 160px;min-width:0}
+.camro-app .bottom{padding-top:20px;padding-bottom:32px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:14px;border-top:1px solid var(--ink-line)}
+
+@media (prefers-reduced-motion:reduce){.camro-app *{transition:none!important}}

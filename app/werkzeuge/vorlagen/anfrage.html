@@ -1,0 +1,32 @@
+{% extends "crm/camro/basis.html" %}
+{% block titel %}Kontakt zu CAMRO aufnehmen{% endblock %}
+{% block camro_kopf %}{% include "crm/camro/_kopf.html" with camro_bereich="gemeinden" camro_sprachen="de,ro" %}{% endblock %}
+{% block ueberschrift %}Kontakt zu CAMRO aufnehmen{% endblock %}
+{% block einleitung %}<div class="intro"><p>Vertreten Sie eine rumänische Gemeinde und möchten mehr über eine Zusammenarbeit mit CAMRO erfahren? Hinterlassen Sie uns Ihre Kontaktdaten — wir schicken Ihnen danach persönlich den Link zum Antragsformular.</p></div>{% endblock %}
+{% block inhalt %}
+<section class="app-form"><div class="wrap">
+<form method="post" novalidate id="kontakt-form">
+<p class="hinweis-pflicht">* Pflichtfeld</p>
+{% if fehler %}<p class="fehler-allgemein">Bitte prüfen Sie die markierten Felder.</p>{% endif %}
+<div class="frage"><label class="haupt" for="id_gemeinde_eingabe">Gemeinde *</label>
+<input type="text" name="gemeinde_eingabe" list="gemeinde-vorschlaege" autocomplete="off" maxlength="200" required id="id_gemeinde_eingabe" value="{% if fehler %}Agnita (Sibiu){% endif %}">
+<datalist id="gemeinde-vorschlaege"><option value="Abrud (Alba)"></option><option value="Agnita (Sibiu)"></option><option value="Aiud (Alba)"></option><option value="Alba Iulia (Alba)"></option></datalist>
+<div class="modul-hinweis">Beginnen Sie zu tippen — erscheint der Name in den Vorschlägen, reicht die Auswahl daraus.</div></div>
+<div class="frage" id="bekannte-gemeinde-kreis" style="display:none;"><label class="haupt">Kreis</label><input type="text" disabled></div>
+<div class="frage" id="neue-gemeinde-felder" style="display:none;"><label class="haupt" for="id_neue_gemeinde_kreis">Kreis</label>
+<select name="neue_gemeinde_kreis" id="id_neue_gemeinde_kreis"><option value="" selected>---</option><option>Alba</option><option>Arad</option><option>Argeș</option><option>Sibiu</option></select></div>
+<div class="frage"><label class="haupt" for="id_kontakt_name">Ansprechpartner:in – Name *</label><input type="text" name="kontakt_name" required id="id_kontakt_name">{% if fehler %}<div class="fehler">Dieses Feld ist zwingend erforderlich.</div>{% endif %}</div>
+<div class="frage"><label class="haupt" for="id_kontakt_funktion">Ansprechpartner:in – Funktion *</label><input type="text" name="kontakt_funktion" required id="id_kontakt_funktion"></div>
+<div class="frage"><label class="haupt" for="id_kontakt_email">Ansprechpartner:in – E-Mail *</label><input type="email" name="kontakt_email" required id="id_kontakt_email"></div>
+<div class="frage"><label class="haupt" for="id_kontakt_tel">Ansprechpartner:in – Telefon *</label><input type="text" name="kontakt_tel" required id="id_kontakt_tel"></div>
+<div class="frage"><label class="haupt" for="id_nachricht">Worum geht es?</label><textarea name="nachricht" cols="40" rows="4" id="id_nachricht"></textarea></div>
+<button type="submit" class="absenden-btn">Anfrage absenden</button>
+</form>
+</div></section>
+{% endblock %}
+{% block skripte %}<script>
+(function(){var e=document.getElementById("id_gemeinde_eingabe"),n=document.getElementById("neue-gemeinde-felder"),k=document.getElementById("bekannte-gemeinde-kreis"),kf=k.querySelector("input");
+var v=[].slice.call(document.querySelectorAll("#gemeinde-vorschlaege option")).map(function(o){return o.value});
+function a(){var w=e.value.trim().toLowerCase(),t=v.find(function(x){return x.trim().toLowerCase()===w}),b=w!==""&&!!t;n.style.display=(w!==""&&!b)?"block":"none";k.style.display=b?"block":"none";if(b)kf.value=t.slice(t.lastIndexOf("(")+1).replace(")","")}
+e.addEventListener("input",a);a();})();
+</script>{% endblock %}
