@@ -12,7 +12,11 @@
 <link rel="stylesheet" href="assets/camro.css">
 <style>
 .trial{display:flex;flex-wrap:wrap;gap:32px 72px;align-items:flex-start}
-.trial h2{flex:1 1 300px;font-size:clamp(28px,3.4vw,44px);font-weight:800;line-height:1.08;letter-spacing:-.02em;color:var(--white)}
+.trial .dur{flex:0 1 220px}
+.trial .dur b{display:block;font-size:clamp(72px,9vw,120px);font-weight:800;line-height:.9;letter-spacing:-.04em;color:var(--raps)}
+.trial .dur span{display:block;font-size:20px;font-weight:600;color:var(--white);margin-top:8px}
+.trial .ttl{flex:1 1 300px}
+.trial h2{font-size:clamp(28px,3.4vw,44px);font-weight:800;line-height:1.08;letter-spacing:-.02em;color:var(--white)}
 .trial .body{flex:1.4 1 420px;min-width:0}
 .trial .body > p:first-child{font-size:18px;color:var(--white);margin-bottom:14px}
 .trial ul{list-style:none;margin:0;padding:0}
@@ -47,7 +51,8 @@
 
   <section class="band-ink" id="probephase">
     <div class="wrap sec trial">
-      <h2 data-i18n="trialTitle"></h2>
+      <div class="dur"><b>12</b><span data-i18n="durUnit"></span></div>
+      <div class="ttl"><h2 data-i18n="trialTitle"></h2></div>
       <div class="body">
         <p data-i18n="trialLead"></p>
         <ul id="trial"></ul>
@@ -78,6 +83,10 @@
   <section class="wrap sec" id="grundprinzipien" style="padding-bottom:96px">
     <h2 class="sec-title" style="margin-bottom:32px" data-i18n="prinTitle"></h2>
     <div class="principles" id="prin"></div>
+    <div class="ctas">
+      <a class="btn btn-dark js-form" href="https://app.camro.ro/anfrage-stellen/?lang=de" data-i18n="ctaAsk"></a>
+      <a class="btn btn-line" href="kontakt.html" data-i18n="ctaQ"></a>
+    </div>
   </section>
 </main>
 
@@ -87,7 +96,7 @@
 /* Texte: wörtlich von camro.ro (Stand 27.11.2026). Abweichungen stehen in der Gegenüberstellung. */
 CAMRO.page({
   de: {
-    pageTitle: "Kriterien & Transparenz",
+    pageTitle: "Kriterien & Transparenz", durUnit: "Monate, in der Regel", ctaAsk: "Anfrage stellen", ctaQ: "Fragen stellen",
     h1: "Die Regeln, nach denen CAMRO Gemeinden aufnimmt und begleitet.",
     lead: "CAMRO verbindet kommunalen Bedarf mit externer Unterstützung. Damit diese Verbindung vertrauenswürdig bleibt, durchläuft jede Gemeinde ein geprüftes Aufnahmeverfahren – unabhängig von Größe, Region oder Art des Bedarfs.",
     j1: "Verfahren", j2: "Probephase", j3: "Aufnahmekriterien", j4: "Bewertung & Beendigung", j5: "Grundprinzipien",
@@ -123,7 +132,7 @@ CAMRO.page({
     ]
   },
   en: {
-    pageTitle: "Criteria & Transparency",
+    pageTitle: "Criteria & Transparency", durUnit: "months, as a rule", ctaAsk: "Submit a request", ctaQ: "Ask a question",
     h1: "The rules by which CAMRO admits and supports municipalities.",
     lead: "CAMRO connects municipal needs with external support. To ensure this connection remains trustworthy, every municipality goes through a verified admission process – regardless of size, region or type of need.",
     j1: "Process", j2: "Probationary period", j3: "Admission criteria", j4: "Assessment & Termination", j5: "Core principles",
@@ -159,7 +168,7 @@ CAMRO.page({
     ]
   },
   ro: {
-    pageTitle: "Criterii & Transparență",
+    pageTitle: "Criterii & Transparență", durUnit: "luni, de regulă", ctaAsk: "Trimite o cerere", ctaQ: "Puneți o întrebare",
     h1: "Regulile după care CAMRO admite și însoțește primăriile.",
     lead: "CAMRO conectează nevoile municipale cu sprijinul extern. Pentru ca această legătură să rămână de încredere, fiecare primărie parcurge o procedură de admitere verificată – indiferent de mărime, regiune sau tipul nevoii.",
     j1: "Procedură", j2: "Perioadă de probă", j3: "Criterii de admitere", j4: "Evaluare & încheiere", j5: "Principii fundamentale",
@@ -204,6 +213,7 @@ CAMRO.page({
   document.getElementById("ex").innerHTML = li(t("exList"));
   document.getElementById("eval").innerHTML = li(t("evalList"));
   document.getElementById("end").innerHTML = li(t("endList"));
+  document.querySelectorAll(".js-form").forEach(function (a) { a.href = "https://app.camro.ro/anfrage-stellen/?lang=" + lang; });
   document.getElementById("prin").innerHTML = t("prin").map(function (p) { return '<div><h3>' + e(p[0]) + '</h3><p>' + e(p[1]) + '</p></div>'; }).join("");
 });
 </script>

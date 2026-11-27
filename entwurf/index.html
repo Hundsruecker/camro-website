@@ -24,6 +24,13 @@
 .survey-text h2{margin:0 0 20px;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.06;letter-spacing:-.02em}
 .survey-text p{font-size:18px;line-height:1.6}
 .survey a.textlink{display:inline-block;margin-top:26px;color:var(--white);text-decoration-color:var(--raps)}
+.survey figure{flex:1 1 380px;min-width:0;margin:0}
+.big{display:flex;align-items:baseline;gap:14px}
+.big b{font-size:clamp(64px,8vw,104px);font-weight:800;line-height:.9;letter-spacing:-.04em;color:var(--raps)}
+.big span{font-size:22px;font-weight:600;color:var(--white)}
+.meter{margin-top:22px;height:14px;border-radius:3px;background:#3A4566;overflow:hidden}
+.meter i{display:block;width:88.6%;height:100%;background:var(--raps)}
+.survey figcaption{margin-top:14px;font-size:16px;line-height:1.5;color:var(--on-ink)}
 .kpis{flex:1 1 380px;min-width:0;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .kpis li{border-top:2px solid var(--ink-line);padding-top:14px}
 .kpis b{display:block;font-size:clamp(34px,4.4vw,56px);font-weight:800;line-height:1;letter-spacing:-.03em;color:var(--white)}
@@ -88,11 +95,16 @@
         <p data-i18n="surveyText"></p>
         <a class="textlink" href="bedarfserhebung.html" data-i18n="surveyLink"></a>
       </div>
-      <ul class="kpis" id="kpis"></ul>
+      <figure>
+        <div class="big"><b>93</b><span data-i18n="surveyOf"></span></div>
+        <div class="meter" role="img" data-i18n-aria="surveyStat"><i></i></div>
+        <figcaption data-i18n="surveyStat"></figcaption>
+      </figure>
     </div>
   </section>
 
   <section class="wrap sec">
+    <h2 class="sec-title" style="margin-bottom:40px" data-i18n="stepsTitle"></h2>
     <ol class="steps" id="steps"></ol>
   </section>
 
@@ -153,7 +165,7 @@ CAMRO.page({
     surveyTitle: "Wir haben 3.001 Gemeinden gefragt, was sie brauchen",
     surveyText: "105 ausgewertete Antworten zeigen, wo Strukturen fehlen, welche Unterstützung gewünscht wird und warum viele Gemeinden bisher mit keiner Organisation zusammenarbeiten.",
     surveyLink: "Ergebnisse ansehen",
-    kpis: [["3.001", "angeschrieben"], ["105", "ausgewertet"], ["93", "wollen Kastration"]],
+    surveyOf: "von 105", surveyStat: "93 von 105 Gemeinden wünschen sich Unterstützung bei Kastrationsprogrammen.", stepsTitle: "So entsteht eine Kooperation",
     steps: [
       ["Gemeinde meldet Bedarf", "Eine Gemeinde stellt ihren konkreten Bedarf beim Straßenhund- und Besitzerhundmanagement über ein standardisiertes Online-Formular dar."],
       ["Prüfung & Einordnung", "Das CAMRO-Team prüft die Angaben vor, ein unabhängiger Partner vor Ort verifiziert sie zusätzlich."],
@@ -197,7 +209,7 @@ CAMRO.page({
     surveyTitle: "We asked 3,001 municipalities what they need",
     surveyText: "105 analysed responses show where structures are missing, which kind of support is wanted, and why many municipalities have never worked with an organisation.",
     surveyLink: "View the results",
-    kpis: [["3,001", "contacted"], ["105", "analysed"], ["93", "want neutering"]],
+    surveyOf: "of 105", surveyStat: "93 of 105 municipalities want support with neutering programmes.", stepsTitle: "How a cooperation comes about",
     steps: [
       ["Municipality reports its need", "A municipality sets out its specific needs in managing stray and owned dogs via a standardised online form."],
       ["Verification & assessment", "The CAMRO team reviews the information; an independent local partner verifies it in addition."],
@@ -241,7 +253,7 @@ CAMRO.page({
     surveyTitle: "Am întrebat 3.001 primării de ce au nevoie",
     surveyText: "105 răspunsuri analizate arată unde lipsesc structurile, ce fel de sprijin este dorit și de ce multe primării nu au colaborat până acum cu nicio organizație.",
     surveyLink: "Vezi rezultatele",
-    kpis: [["3.001", "contactate"], ["105", "analizate"], ["93", "vor sterilizare"]],
+    surveyOf: "din 105", surveyStat: "93 din 105 primării își doresc sprijin pentru programe de sterilizare.", stepsTitle: "Cum ia naștere o cooperare",
     steps: [
       ["Primăria raportează nevoia", "O primărie își prezintă nevoile concrete privind gestionarea câinilor comunitari și a celor cu proprietar printr-un formular online standardizat."],
       ["Verificare & evaluare", "Echipa CAMRO verifică datele în prealabil, iar un partener local independent le verifică suplimentar."],
@@ -279,7 +291,6 @@ CAMRO.page({
     });
     map.render(); CAMRO.legend($("legend")); showPanel();
     $("facts").innerHTML = t("facts").map(function (f) { return '<div><dt>' + e(f[0]) + '</dt><dd>' + e(f[1]) + '</dd></div>'; }).join("");
-    $("kpis").innerHTML = t("kpis").map(function (k) { return '<li><b>' + e(k[0]) + '</b><span>' + e(k[1]) + '</span></li>'; }).join("");
     $("steps").innerHTML = t("steps").map(function (s, i) { return '<li><span class="n">' + (i + 1) + '</span><h3>' + e(s[0]) + '</h3><p>' + e(s[1]) + '</p></li>'; }).join("");
     $("isList").innerHTML = t("isList").map(function (x) { return '<li>' + e(x) + '</li>'; }).join("");
     $("notList").innerHTML = t("notList").map(function (x) { return '<li>' + e(x) + '</li>'; }).join("");

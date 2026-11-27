@@ -28,6 +28,10 @@
   <section class="wrap page-head">
     <h1 data-i18n="h1"></h1>
     <p class="lead" data-i18n="lead"></p>
+    <div class="ctas">
+      <a class="btn btn-dark" href="#anfrage" data-i18n="ctaAsk"></a>
+      <a class="btn btn-line" href="kriterien.html" data-i18n="ctaCrit"></a>
+    </div>
   </section>
 
   <section class="wrap sec">
@@ -67,7 +71,13 @@
     </div>
   </section>
 
-  <section class="wrap" id="anfrage" style="padding-top:72px;padding-bottom:96px">
+  <section class="wrap sec">
+    <h2 class="sec-title" style="margin-bottom:40px" data-i18n="procTitle"></h2>
+    <ol class="steps" id="proc"></ol>
+    <p style="margin-top:32px"><a class="textlink" href="kriterien.html#verfahren" data-i18n="procLink"></a></p>
+  </section>
+
+  <section class="wrap" id="anfrage" style="padding-bottom:96px">
     <div class="ask">
       <div>
         <h2 data-i18n="askTitle"></h2>
@@ -85,6 +95,7 @@
 CAMRO.page({
   de: {
     pageTitle: "Für Gemeinden",
+    ctaAsk: "Bedarf melden", ctaCrit: "Kriterien lesen", procTitle: "So läuft die Aufnahme", procLink: "Aufnahmeverfahren im Detail", proc: [["Bedarf melden", "Die Gemeinde beschreibt ihren Bedarf in einem standardisierten Online-Formular."],["Prüfung", "CAMRO prüft die Angaben, ein unabhängiger Partner besucht die Gemeinde, Unterlagen wie Budget und Maßnahmenpläne werden gesichtet."],["Probephase", "In der Regel rund zwölf Monate. Die Gemeinde dokumentiert ihre Maßnahmen und die Verwendung der Unterstützung."],["Dauerhafte Aufnahme", "Nach erfolgreichem Abschluss der Probephase wird die Gemeinde dauerhaft aufgenommen."]],
     h1: "Gemeinsam tragfähige Lösungen für den kommunalen Tierschutz entwickeln.",
     lead: "CAMRO richtet sich an Gemeinden und kommunale Entscheidungsträger in Rumänien, die Unterstützungsbedarf beim Management von Straßen- und Besitzerhunden haben und ergänzende, strukturierte Unterstützung suchen. Die Teilnahme ist freiwillig und unverbindlich.",
     whoTitle: "Wer kann eine Anfrage stellen?",
@@ -109,6 +120,7 @@ CAMRO.page({
   },
   en: {
     pageTitle: "For municipalities",
+    ctaAsk: "Submit a request", ctaCrit: "Read the criteria", procTitle: "How admission works", procLink: "Admission procedure in detail", proc: [["Report the need", "The municipality describes its need in a standardised online form."],["Review", "CAMRO checks the information, an independent partner visits the municipality, and documents such as budgets and action plans are examined."],["Probationary period", "Usually about twelve months. The municipality documents its measures and how the support is used."],["Permanent admission", "After a successful probationary period the municipality is admitted permanently."]],
     h1: "Developing sustainable solutions for municipal animal welfare together.",
     lead: "CAMRO is aimed at municipalities and local decision-makers in Romania that need support in managing stray and owner-neglected dogs and are committed to humane, sustainable solutions. Participation is voluntary and non-binding.",
     whoTitle: "Who can submit a request?",
@@ -133,6 +145,7 @@ CAMRO.page({
   },
   ro: {
     pageTitle: "Pentru primării",
+    ctaAsk: "Trimite o cerere", ctaCrit: "Citiți criteriile", procTitle: "Cum are loc înscrierea", procLink: "Procedura de înscriere în detaliu", proc: [["Semnalarea nevoii", "Primăria își descrie nevoia într-un formular online standardizat."],["Verificare", "CAMRO verifică datele, un partener independent vizitează primăria, iar documente precum bugetul și planurile de măsuri sunt analizate."],["Perioada de probă", "De regulă aproximativ douăsprezece luni. Primăria își documentează măsurile și modul în care folosește sprijinul."],["Înscriere permanentă", "După încheierea cu succes a perioadei de probă, primăria este înscrisă permanent."]],
     h1: "Dezvoltăm împreună soluții durabile pentru protecția animalelor la nivel municipal.",
     lead: "CAMRO se adresează primăriilor și factorilor de decizie locali din România care au nevoie de sprijin în gestionarea câinilor comunitari și optează pentru soluții umane și durabile. Participarea este voluntară și fără angajamente.",
     whoTitle: "Cine poate trimite o cerere?",
@@ -162,6 +175,7 @@ CAMRO.page({
   document.getElementById("pre").innerHTML = li(t("preList"));
   document.getElementById("min").innerHTML = li(t("minList"));
   document.getElementById("areas").innerHTML = li(t("areasList"));
+  document.getElementById("proc").innerHTML = t("proc").map(function (s, i) { return '<li><span class="n">' + (i + 1) + '</span><h3>' + e(s[0]) + '</h3><p>' + e(s[1]) + '</p></li>'; }).join("");
   document.querySelectorAll(".js-form").forEach(function (a) { a.href = "https://app.camro.ro/anfrage-stellen/?lang=" + lang; });
 });
 </script>
