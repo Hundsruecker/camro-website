@@ -28,10 +28,12 @@ def split_sel(s):
     out.append(cur)
     return [x.strip() for x in out if x.strip()]
 
+P = "#primary #c2"
+
 def pre(sel):
-    if sel in (":root", "body", "html"): return "#c2"
-    if sel.startswith("body "): return "#c2 " + sel[5:]
-    return "#c2 " + sel
+    if sel in (":root", "body", "html"): return P
+    if sel.startswith("body "): return P + " " + sel[5:]
+    return P + " " + sel
 
 def scope(css):
     out = []
@@ -48,13 +50,21 @@ def mini(css):
     css = re.sub(r"\s*([{};:,>])\s*", r"\1", css)
     return css.replace(";}", "}")
 
-NEUTRAL = ("#masthead,#colophon,.site-footer,.entry-header,.ast-breadcrumbs-wrapper{display:none!important}"
-           "body{background:#F4F6F5!important}#primary{margin:0!important}"
-           ".ast-container{max-width:none!important;padding:0!important}"
-           ".entry-content{padding:0!important;margin:0!important}"
-           ".entry-content>#c2{margin:0!important}#c2 h1,#c2 h2,#c2 h3,#c2 h4{font-family:inherit;color:inherit;text-transform:none}"
-           "#c2 a{text-decoration-line:underline}#c2 .btn,#c2 .nav a,#c2 .brand,#c2 .jump a{text-decoration:none}"
-           "#c2 ul,#c2 ol{margin-left:0}#c2 p{margin-bottom:0}#c2 li{margin-bottom:0}")
+NEUTRAL = (
+    # Theme-Teile ausblenden, die die neuen Seiten selbst mitbringen
+    "#masthead,#colophon,.site-footer,.entry-header,.ast-breadcrumbs-wrapper,.ast-page-title-bar{display:none!important}"
+    "body{background:#F4F6F5!important}"
+    # Alle Breiten-Deckel von Astra und vom alten Zusatz-CSS (Abschnitt 24a/25) aufheben
+    "#page,#content.site-content,#content .ast-container,#primary,#main,#primary article{max-width:none!important;width:100%!important;margin:0!important;padding:0!important}"
+    "#primary .entry-content,#primary .entry-content[data-ast-blocks-layout]{max-width:none!important;width:100%!important;margin:0!important;padding:0!important}"
+    "#primary .entry-content>#c2{max-width:none!important;width:100%!important;margin:0!important}"
+    # Typografie und Links des alten CSS neutralisieren (zwei IDs schlagen dessen Selektoren)
+    "#primary #c2 h1,#primary #c2 h2,#primary #c2 h3,#primary #c2 h4{font-family:inherit;color:inherit;text-transform:none;margin-top:0}"
+    "#primary #c2 a{border-bottom:0;color:inherit;text-decoration-line:underline}"
+    "#primary #c2 .btn,#primary #c2 .nav a,#primary #c2 .brand,#primary #c2 .jump a,#primary #c2 .lang a,#primary #c2 .foot-area a{text-decoration:none}"
+    "#primary #c2 ul,#primary #c2 ol{margin-left:0}#primary #c2 p{margin-bottom:0}#primary #c2 li{margin-bottom:0}"
+    "#primary #c2 strong{color:inherit}"
+)
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
          '<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700;800&display=swap" rel="stylesheet">')
 
