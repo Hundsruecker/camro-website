@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAMRO</title>
+<link rel="icon" href="logo/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="logo/apple-touch-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/camro.css">
+<style>
+.hero{padding-top:clamp(40px,6vw,88px);padding-bottom:72px;display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start}
+.hero-text{flex:1 1 380px;min-width:0;max-width:520px;padding-top:8px}
+.hero h1{margin:0 0 28px;font-weight:800;font-size:clamp(40px,5.2vw,68px);line-height:1.02;letter-spacing:-.025em}
+.hero .mapbox{flex:1 1 560px;min-width:0}
+.facts{margin:0;display:flex;flex-direction:column}
+.facts > div{padding:20px 0;border-top:1px solid var(--line)}
+.facts dt{font-weight:700;font-size:18px;margin-bottom:6px}
+.facts dd{margin:0;color:var(--text2);font-size:16px;line-height:1.55}
+.survey .wrap{padding-top:80px;padding-bottom:80px;display:flex;flex-wrap:wrap;gap:48px 80px;align-items:flex-end}
+.survey-text{flex:1 1 440px;min-width:0;max-width:600px}
+.survey-text h2{margin:0 0 20px;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.06;letter-spacing:-.02em}
+.survey-text p{font-size:18px;line-height:1.6}
+.survey a.textlink{display:inline-block;margin-top:26px;color:var(--white);text-decoration-color:var(--raps)}
+.kpis{flex:1 1 380px;min-width:0;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.kpis li{border-top:2px solid var(--ink-line);padding-top:14px}
+.kpis b{display:block;font-size:clamp(34px,4.4vw,56px);font-weight:800;line-height:1;letter-spacing:-.03em;color:var(--white)}
+.kpis li:last-child{border-top-color:var(--raps)}
+.kpis li:last-child b{color:var(--raps)}
+.kpis span{display:block;margin-top:8px;font-size:15px;color:var(--on-ink)}
+.phases{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:32px}
+.phases li{flex:1 1 280px;min-width:0}
+.phases .pb{height:8px;border-radius:2px;background:var(--line)}
+.phases li:nth-child(1) .pb{background:var(--pine)}
+.phases li:nth-child(2) .pb{background:repeating-linear-gradient(90deg,var(--pine) 0 10px,transparent 10px 16px)}
+.phases .when{font-size:14px;margin-top:16px;color:var(--muted)}
+.phases .when b{color:var(--ink);margin-right:8px}
+.phases h3{margin:6px 0 8px;font-size:20px;font-weight:700}
+.phases p.t{font-size:16px;line-height:1.6;color:var(--text2)}
+.aud{padding-bottom:96px;display:flex;flex-wrap:wrap;gap:24px}
+.aud > div{flex:1 1 380px;min-width:0;border-radius:10px;padding:clamp(28px,4vw,48px)}
+.aud h2{margin:0 0 14px;font-size:30px;font-weight:800;letter-spacing:-.015em}
+.aud p{font-size:17px;line-height:1.6;max-width:30em}
+.aud .btn{margin-top:28px;padding:0 22px}
+.aud-gem{background:var(--pine);color:var(--white)} .aud-gem p{color:var(--pine-soft)}
+.aud-sup{background:var(--raps);color:var(--ink)}
+</style>
+</head>
+<body data-page="index.html">
+<div id="site-header"></div>
+
+<main id="main">
+  <section class="wrap hero">
+    <div class="hero-text">
+      <h1 data-i18n="heroTitle"></h1>
+      <p class="lead" data-i18n="heroText"></p>
+      <div class="ctas">
+        <a class="btn btn-dark" href="gemeinden.html" data-i18n="ctaGem"></a>
+        <a class="btn btn-line" href="unterstuetzer.html" data-i18n="ctaSup"></a>
+      </div>
+    </div>
+    <div class="mapbox" id="karte">
+      <h2 data-i18n="mapTitle"></h2>
+      <p class="hint" data-i18n="mapHint"></p>
+      <div class="tgrid" id="grid"></div>
+      <div class="mapfoot">
+        <ul class="legend" id="legend"></ul>
+        <div class="panel" id="panel" aria-live="polite"></div>
+      </div>
+      <p class="note"><span data-i18n="mapNote"></span> <span data-i18n="mapDraft"></span></p>
+    </div>
+  </section>
+
+  <section class="wrap sec split" style="border-top:1px solid var(--line)">
+    <div style="max-width:620px">
+      <h2 class="sec-title" data-i18n="aboutTitle"></h2>
+      <p style="font-size:18px;line-height:1.65" data-i18n="aboutText"></p>
+    </div>
+    <dl class="facts" id="facts"></dl>
+  </section>
+
+  <section class="survey band-ink">
+    <div class="wrap">
+      <div class="survey-text">
+        <h2 data-i18n="surveyTitle"></h2>
+        <p data-i18n="surveyText"></p>
+        <a class="textlink" href="bedarfserhebung.html" data-i18n="surveyLink"></a>
+      </div>
+      <ul class="kpis" id="kpis"></ul>
+    </div>
+  </section>
+
+  <section class="wrap sec">
+    <ol class="steps" id="steps"></ol>
+  </section>
+
+  <section class="band-white">
+    <div class="wrap sec">
+      <h2 class="sec-title" style="max-width:16em;margin-bottom:40px" data-i18n="critTitle"></h2>
+      <div class="split">
+        <div><h3 class="list-head" style="color:var(--pine)" data-i18n="isHead"></h3><ul class="ticks" id="isList"></ul></div>
+        <div><h3 class="list-head" data-i18n="notHead"></h3><ul class="dashes" id="notList"></ul></div>
+      </div>
+      <p style="margin-top:32px"><a class="textlink" href="kriterien.html" data-i18n="critLink"></a></p>
+    </div>
+  </section>
+
+  <section class="wrap sec">
+    <div style="max-width:640px;margin-bottom:44px">
+      <h2 class="sec-title" style="margin-bottom:16px" data-i18n="stateTitle"></h2>
+      <p style="font-size:18px" data-i18n="stateText"></p>
+    </div>
+    <ol class="phases" id="phases"></ol>
+  </section>
+
+  <section class="wrap aud">
+    <div class="aud-gem">
+      <h2 data-i18n="audGemTitle"></h2>
+      <p data-i18n="audGemText"></p>
+      <a class="btn btn-white" href="gemeinden.html" data-i18n="audGemLink"></a>
+    </div>
+    <div class="aud-sup">
+      <h2 data-i18n="audSupTitle"></h2>
+      <p data-i18n="audSupText"></p>
+      <a class="btn btn-dark" href="unterstuetzer.html" data-i18n="audSupLink"></a>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="assets/camro.js"></script>
+<script>
+/* Texte: wörtlich von camro.ro (Stand 27.11.2026). Abweichungen stehen in der Gegenüberstellung. */
+CAMRO.page({
+  de: {
+    pageTitle: "Start",
+    heroTitle: "Kommunaler Tierschutz, geprüft sichtbar gemacht.",
+    heroText: "CAMRO verbindet rumänische Gemeinden, die Unterstützungsbedarf beim Management von Straßen- und Besitzerhunden haben, mit externen Partnern – auf Basis geprüfter Bedarfe, freiwillig und jederzeit nachvollziehbar.",
+    ctaGem: "Für Gemeinden", ctaSup: "Für Unterstützer",
+    mapTitle: "Wo macht wer mit?",
+    mapHint: "Jeder Kreis zeigt auf einen Blick, ob bereits Gemeinden gemeldet sind. Mit der Maus über einen Kreis fahren zeigt den Status, ein Klick öffnet die Detailliste.",
+    mapNote: "Live-Daten aus dem CAMRO-CRM.",
+    mapDraft: "(Im Entwurf: Beispielwerte.)",
+    aboutTitle: "Bedarf, der bisher unsichtbar blieb.",
+    aboutText: "Die Verwaltung von Straßen- und Besitzerhunden ist in Rumänien eine gesetzliche Pflichtaufgabe der Gemeinden – doch viele stoßen dabei an organisatorische oder finanzielle Grenzen. Gleichzeitig engagieren sich zahlreiche nationale und internationale Organisationen für nachhaltige Lösungen: CNVR-Programme, Tierheimunterbringung mit Adoptionsvermittlung oder Kombinationen beider Ansätze. Ihre Unterstützung bleibt jedoch häufig unkoordiniert. CAMRO schafft eine strukturierte Verbindung zwischen kommunalem Bedarf und externer Unterstützung – für Gemeinden, die auf humane und dauerhafte Lösungen setzen.",
+    facts: [
+      ["Gesetzliche Pflichtaufgabe", "Die Verwaltung von Straßenhunden ist in Rumänien durch Spezialgesetzgebung geregelte Pflichtaufgabe der Kommunen."],
+      ["CNVR & Tierheim", "Kastration & Rückführung oder Unterbringung mit Adoptionsvermittlung – beide Ansätze sind förderfähig."],
+      ["41 Kreise + București", "CAMRO ist offen für Gemeinden in allen rumänischen Landkreisen."]
+    ],
+    surveyTitle: "Wir haben 3.001 Gemeinden gefragt, was sie brauchen",
+    surveyText: "105 ausgewertete Antworten zeigen, wo Strukturen fehlen, welche Unterstützung gewünscht wird und warum viele Gemeinden bisher mit keiner Organisation zusammenarbeiten.",
+    surveyLink: "Ergebnisse ansehen",
+    kpis: [["3.001", "angeschrieben"], ["105", "ausgewertet"], ["93", "wollen Kastration"]],
+    steps: [
+      ["Gemeinde meldet Bedarf", "Eine Gemeinde stellt ihren konkreten Bedarf beim Straßenhund- und Besitzerhundmanagement über ein standardisiertes Online-Formular dar."],
+      ["Prüfung & Einordnung", "Das CAMRO-Team prüft die Angaben vor, ein unabhängiger Partner vor Ort verifiziert sie zusätzlich."],
+      ["Gezielte Kooperation", "Externe Organisationen unterstützen passgenau – ergänzend, nicht als Ersatz kommunaler Verantwortung."]
+    ],
+    critTitle: "Was CAMRO ist – und was bewusst nicht.",
+    isHead: "CAMRO ist", notHead: "CAMRO ist nicht",
+    isList: ["eine strukturierende Kooperationsplattform", "freiwillig und jederzeit beendbar", "auf geprüfte, nachvollziehbare Bedarfe gestützt", "ergänzende Unterstützung neben kommunalem Eigenanteil"],
+    notList: ["eine Spendensammelplattform", "eine automatische Finanzierungszusage", "ein Ersatz kommunaler Verantwortung", "offen für Einzelpersonen oder informelle Initiativen"],
+    critLink: "Vollständiger Kriterienkatalog & Prüfverfahren",
+    stateTitle: "Im Aufbau – transparent von Anfang an.",
+    stateText: "CAMRO befindet sich aktuell in der ersten Phase. Statt unfertiger Kennzahlen zeigen wir lieber, wo wir stehen.",
+    phases: [
+      ["Phase 1", "Jetzt", "Projektbörse aufbauen", "Erste Gemeinden werden aufgenommen, Bedarfe strukturiert sichtbar gemacht."],
+      ["Phase 2", "In Vorbereitung", "Kontrollinstrumente ausbauen", "Vor-Ort-Prüfnetz und Probephasen-Dokumentation werden aufgesetzt und verbindlich gemacht."],
+      ["Phase 3", "Geplant", "Landesweite Skalierung", "Ausweitung auf weitere Landkreise und zusätzliche Partnerorganisationen."]
+    ],
+    audGemTitle: "Für Gemeinden",
+    audGemText: "Sie sind Bürgermeister:in oder kommunale Verwaltung und suchen strukturierte, ergänzende Unterstützung beim Management von Straßen- und Besitzerhunden.",
+    audGemLink: "Mehr erfahren",
+    audSupTitle: "Für Unterstützer",
+    audSupText: "Sie möchten gezielt und nachvollziehbar unterstützen, statt unkoordiniert zu fördern.",
+    audSupLink: "Kooperation anfragen"
+  },
+  en: {
+    pageTitle: "Home",
+    heroTitle: "Municipal animal welfare, verified and made visible.",
+    heroText: "CAMRO connects Romanian municipalities that need support in managing stray and owned dogs with external partners – based on verified needs, voluntarily and always transparently.",
+    ctaGem: "For Municipalities", ctaSup: "For supporters",
+    mapTitle: "Who is participating where?",
+    mapHint: "Each county shows at a glance whether municipalities have already registered. Hover over a county to see the status, click to open the detail list.",
+    mapNote: "Live data from the CAMRO CRM.",
+    mapDraft: "(Draft: sample values.)",
+    aboutTitle: "Needs that remained invisible until now.",
+    aboutText: "Managing stray and owned dogs is a statutory duty of municipalities in Romania – yet many reach the limits of their organisational or financial capacity. At the same time, numerous national and international organisations are committed to sustainable solutions: CNVR programmes, shelter placement with adoption promotion, or combinations of both approaches. Their support, however, often remains uncoordinated. CAMRO creates a structured connection between municipal needs and external support – for municipalities committed to humane and lasting solutions.",
+    facts: [
+      ["Statutory duty", "The management of stray dogs in Romania is a statutory municipal duty governed by specific legislation."],
+      ["CNVR & Shelter", "Neutering & return or shelter placement with adoption promotion – both approaches are eligible for support."],
+      ["41 Counties + București", "CAMRO is open to municipalities in all Romanian counties."]
+    ],
+    surveyTitle: "We asked 3,001 municipalities what they need",
+    surveyText: "105 analysed responses show where structures are missing, which kind of support is wanted, and why many municipalities have never worked with an organisation.",
+    surveyLink: "View the results",
+    kpis: [["3,001", "contacted"], ["105", "analysed"], ["93", "want neutering"]],
+    steps: [
+      ["Municipality reports its need", "A municipality sets out its specific needs in managing stray and owned dogs via a standardised online form."],
+      ["Verification & assessment", "The CAMRO team reviews the information; an independent local partner verifies it in addition."],
+      ["Targeted cooperation", "External organisations provide precisely fitting support – complementary, not as a replacement for municipal responsibility."]
+    ],
+    critTitle: "What CAMRO is – and what it deliberately is not.",
+    isHead: "CAMRO is", notHead: "CAMRO is not",
+    isList: ["a structuring cooperation platform", "voluntary and terminable at any time", "based on verified, transparent needs", "supplementary support alongside the municipality’s own contribution"],
+    notList: ["a donation collection platform", "an automatic funding commitment", "a replacement for municipal responsibility", "open to individuals or informal initiatives"],
+    critLink: "Full criteria catalogue & verification process",
+    stateTitle: "Under construction – transparent from the start.",
+    stateText: "CAMRO is currently in its first phase. Rather than unfinished metrics, we prefer to show where we stand.",
+    phases: [
+      ["Phase 1", "Now", "Build the project exchange", "First municipalities are registered, needs structured and made visible."],
+      ["Phase 2", "In preparation", "Expand monitoring instruments", "On-site verification network and probationary period documentation are established and made binding."],
+      ["Phase 3", "Planned", "Nationwide scaling", "Expansion to further counties and additional partner organisations."]
+    ],
+    audGemTitle: "For municipalities",
+    audGemText: "You are a mayor or municipal administration looking for structured, complementary support in managing stray and owned dogs.",
+    audGemLink: "Learn more",
+    audSupTitle: "For supporters",
+    audSupText: "You want to provide targeted, transparent support rather than uncoordinated funding.",
+    audSupLink: "Request cooperation"
+  },
+  ro: {
+    pageTitle: "Acasă",
+    heroTitle: "Protecția animală municipală, verificată și vizibilizată.",
+    heroText: "CAMRO conectează primăriile din România care au nevoie de sprijin în gestionarea câinilor comunitari și a celor cu proprietar cu parteneri externi – pe baza nevoilor verificate, în mod voluntar și întotdeauna transparent.",
+    ctaGem: "Trimite o cerere", ctaSup: "Pentru susținători",
+    mapTitle: "Cine participă și unde?",
+    mapHint: "Fiecare județ arată dintr-o privire dacă primării s-au înregistrat deja. Treceți cu mouse-ul peste un județ pentru a vedea statusul, un clic deschide lista de detalii.",
+    mapNote: "Date în timp real din CRM-ul CAMRO.",
+    mapDraft: "(Schiță: valori exemplificative.)",
+    aboutTitle: "Nevoi care până acum au rămas invizibile.",
+    aboutText: "Gestionarea câinilor comunitari și a celor cu proprietar este o obligație legală a primăriilor din România – totuși, multe dintre ele ajung la limitele capacității organizatorice sau financiare. În același timp, numeroase organizații naționale și internaționale sunt implicate în soluții durabile: programe CNVR, cazare în adăpost cu promovarea adopțiilor sau o combinație a ambelor abordări. Sprijinul lor rămâne însă adesea necoordonat. CAMRO creează o legătură structurată între nevoile municipale și sprijinul extern – pentru primăriile care optează pentru soluții umane și de durată.",
+    facts: [
+      ["Obligație legală", "Gestionarea câinilor comunitari în România este o obligație municipală reglementată prin legislație specială."],
+      ["CNVR & Adăpost", "Sterilizare & returnare sau cazare în adăpost cu promovarea adopțiilor – ambele abordări sunt eligibile pentru sprijin."],
+      ["41 Județe + București", "CAMRO este deschis primăriilor din toate județele României."]
+    ],
+    surveyTitle: "Am întrebat 3.001 primării de ce au nevoie",
+    surveyText: "105 răspunsuri analizate arată unde lipsesc structurile, ce fel de sprijin este dorit și de ce multe primării nu au colaborat până acum cu nicio organizație.",
+    surveyLink: "Vezi rezultatele",
+    kpis: [["3.001", "contactate"], ["105", "analizate"], ["93", "vor sterilizare"]],
+    steps: [
+      ["Primăria raportează nevoia", "O primărie își prezintă nevoile concrete privind gestionarea câinilor comunitari și a celor cu proprietar printr-un formular online standardizat."],
+      ["Verificare & evaluare", "Echipa CAMRO verifică datele în prealabil, iar un partener local independent le verifică suplimentar."],
+      ["Cooperare țintită", "Organizațiile externe oferă sprijin adaptat – complementar, nu ca înlocuitor al responsabilității municipale."]
+    ],
+    critTitle: "Ce este CAMRO – și ce nu este în mod deliberat.",
+    isHead: "CAMRO este", notHead: "CAMRO nu este",
+    isList: ["o platformă structurantă de cooperare", "voluntar și reziliabil oricând", "bazat pe nevoi verificate și transparente", "sprijin complementar alături de contribuția proprie a primăriei"],
+    notList: ["o platformă de colectare de donații", "un angajament automat de finanțare", "un înlocuitor al responsabilității municipale", "deschis pentru persoane fizice sau inițiative informale"],
+    critLink: "Catalog complet de criterii & proceduri de verificare",
+    stateTitle: "În construcție – transparent de la început.",
+    stateText: "CAMRO se află în prezent în prima fază. În loc de indicatori nefinalizați, preferăm să arătăm unde ne aflăm.",
+    phases: [
+      ["Faza 1", "Acum", "Construirea bursei de proiecte", "Primele primării sunt înregistrate, nevoile sunt structurate și vizibilizate."],
+      ["Faza 2", "În pregătire", "Extinderea instrumentelor de monitorizare", "Rețeaua de verificare locală și documentația perioadei de probă sunt stabilite și formalizate."],
+      ["Faza 3", "Planificat", "Extindere națională", "Extindere la județe suplimentare și organizații partenere."]
+    ],
+    audGemTitle: "Pentru primării",
+    audGemText: "Sunteți primar sau administrație locală și căutați sprijin structurat și complementar în gestionarea câinilor comunitari și a celor cu proprietar.",
+    audGemLink: "Trimite o cerere",
+    audSupTitle: "Pentru susținători",
+    audSupText: "Doriți să oferiți sprijin țintit și transparent, în loc de finanțare necoordinată.",
+    audSupLink: "Solicită cooperare"
+  }
+}, (function () {
+  var map = null, sel = "PH", hover = null;
+  var $ = function (id) { return document.getElementById(id); };
+  function showPanel() { CAMRO.panel($("panel"), hover || sel); }
+  return function (lang, t) {
+    var e = CAMRO.esc;
+    if (!map) map = CAMRO.tileMap($("grid"), {
+      selected: sel,
+      onPick: function (c) { sel = c; showPanel(); },
+      onHover: function (c) { hover = c; showPanel(); }
+    });
+    map.render(); CAMRO.legend($("legend")); showPanel();
+    $("facts").innerHTML = t("facts").map(function (f) { return '<div><dt>' + e(f[0]) + '</dt><dd>' + e(f[1]) + '</dd></div>'; }).join("");
+    $("kpis").innerHTML = t("kpis").map(function (k) { return '<li><b>' + e(k[0]) + '</b><span>' + e(k[1]) + '</span></li>'; }).join("");
+    $("steps").innerHTML = t("steps").map(function (s, i) { return '<li><span class="n">' + (i + 1) + '</span><h3>' + e(s[0]) + '</h3><p>' + e(s[1]) + '</p></li>'; }).join("");
+    $("isList").innerHTML = t("isList").map(function (x) { return '<li>' + e(x) + '</li>'; }).join("");
+    $("notList").innerHTML = t("notList").map(function (x) { return '<li>' + e(x) + '</li>'; }).join("");
+    $("phases").innerHTML = t("phases").map(function (p) { return '<li><div class="pb"></div><p class="when"><b>' + e(p[0]) + '</b>' + e(p[1]) + '</p><h3>' + e(p[2]) + '</h3><p class="t">' + e(p[3]) + '</p></li>'; }).join("");
+  };
+})());
+</script>
+</body>
+</html>

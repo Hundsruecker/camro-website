@@ -1,0 +1,37 @@
+CAMRO – Website-Entwurf (November 2026)
+
+Öffnen: index.html doppelklicken. Alle Seiten sind untereinander verlinkt.
+
+Seiten
+  index.html            Start
+  gemeinden.html        Für Gemeinden
+  kriterien.html        Kriterien & Transparenz
+  unterstuetzer.html    Für Unterstützer
+  projekte.html         Projekte (mit Kreisfilter und Tabelle)
+  kontakt.html          Kontakt
+  bedarfserhebung.html  Bedarfserhebung 2026
+
+Gemeinsame Dateien
+  assets/camro.css      Farben, Schrift, alle Bausteine
+  assets/camro.js       Kopf- und Fußzeile, Sprachwahl, Kreiskarte, Balkendiagramme
+  logo/                 Logo als SVG und PNG, Favicon, App-Symbol
+
+Sprachen
+  Deutsch, Englisch, Rumänisch. Die Texte stehen jeweils unten in der Seite
+  (CAMRO.page({ de: …, en: …, ro: … })), Kopf- und Fußzeile in assets/camro.js.
+  Die gewählte Sprache wird beim Seitenwechsel mitgenommen (?lang=de|en|ro).
+
+Beispieldaten (vor dem Livegang ersetzen)
+  assets/camro.js   STATUS   Status der Kreise auf der Karte
+  projekte.html     SAMPLE   Beispielzeilen der Projekttabelle
+  Beide sollen später aus dem CAMRO-CRM (JSON-API) kommen.
+
+Texte
+  Alle Texte stammen wörtlich von camro.ro (Stand 27.11.2026).
+  Abweichungen stehen im Dokument "CAMRO – Gegenüberstellung Live-Seite und Neugestaltung".
+
+Hinweise
+  - Antragsformular Gemeinden: app.camro.ro/anfrage-stellen/?lang=…
+  - Kooperationsanfrage Unterstützer: app.camro.ro/angebot/?lang=…
+  - Impressum und Datenschutz verlinken auf die bestehenden Seiten auf camro.ro.
+  - Die Schrift Commissioner wird von Google Fonts geladen.

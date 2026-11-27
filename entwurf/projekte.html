@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projekte – CAMRO</title>
+<link rel="icon" href="logo/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="logo/apple-touch-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/camro.css">
+<style>
+.pgrid{display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start}
+.pgrid .mapbox{flex:1 1 420px;min-width:0;max-width:560px}
+.pgrid .side{flex:1 1 380px;min-width:0}
+.side h2{font-size:24px;font-weight:800;margin-bottom:18px}
+.side .filters{flex-direction:column;align-items:stretch}
+.side .field select{width:100%}
+.count{font-size:15px;font-weight:600;margin-top:24px}
+.draft{margin-top:24px;padding:16px 18px;border:1px dashed #9AA4A0;border-radius:8px;font-size:14px;color:var(--muted)}
+.draft .switch{color:var(--ink);font-weight:600}
+td .gem{font-weight:600}
+</style>
+</head>
+<body data-page="projekte.html">
+<div id="site-header"></div>
+
+<main id="main">
+  <section class="wrap page-head">
+    <h1 data-i18n="h1"></h1>
+  </section>
+
+  <section class="wrap sec">
+    <div class="pgrid">
+      <div class="mapbox">
+        <h2 data-i18n="mapTitle"></h2>
+        <p class="hint" data-i18n="mapHint"></p>
+        <div class="tgrid" id="grid"></div>
+        <div class="mapfoot"><ul class="legend" id="legend"></ul></div>
+      </div>
+      <div class="side">
+        <h2 data-i18n="filterTitle"></h2>
+        <div class="filters">
+          <div id="chipbox"></div>
+          <label class="field"><span data-i18n="fDate"></span><select id="fDate"></select></label>
+          <label class="field"><span data-i18n="fNeed"></span><select id="fNeed"></select></label>
+          <label class="field"><span data-i18n="fSort"></span><select id="fSort"></select></label>
+          <button type="button" class="btn btn-line" id="reset" data-i18n="reset"></button>
+        </div>
+        <p class="count" id="count" aria-live="polite"></p>
+        <div class="draft">
+          <label class="switch"><input type="checkbox" id="sample" checked> <span data-i18n="sampleToggle"></span></label>
+          <p style="margin-top:6px" data-i18n="sampleNote"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tbox" id="tbox"></div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="assets/camro.js"></script>
+<script>
+CAMRO.page({
+  de: {
+    pageTitle: "Projekte",
+    h1: "Projekte",
+    mapTitle: "Nach Kreis filtern",
+    mapHint: "Ein Klick auf einen Kreis zeigt nur dessen Projekte. Ein zweiter Klick hebt die Auswahl auf.",
+    filterTitle: "Auswahl",
+    fDate: "Antrag", fNeed: "Offener Bedarf", fSort: "Sortierung", reset: "Zurücksetzen",
+    dateOpts: ["Alle", "Letzte 30 Tage", "Letzte 3 Monate", "Letzte 12 Monate"],
+    needOpts: ["Alle", "Nicht beziffert", "Unter 10.000", "10.000 bis 50.000", "Über 50.000", "Gedeckt"],
+    sortOpts: ["Antrag, neueste zuerst", "Gemeinde A bis Z", "Offener Bedarf, höchster zuerst"],
+    county: "Kreis", clear: "Auswahl aufheben",
+    count1: "1 Projekt", countN: "{n} Projekte",
+    cols: ["Nr.", "Gemeinde", "Kreis", "Bedarf", "Status", "Antrag", "Offener Bedarf"],
+    status: { trial: "Probephase", active: "Aktive Kooperation", review: "In Prüfung" },
+    needs: { neuter: "Kastration", register: "Registrierung" },
+    notQuant: "nicht beziffert", covered: "gedeckt",
+    sample: "Beispiel",
+    sampleToggle: "Beispielzeilen anzeigen",
+    sampleNote: "Nur im Entwurf. Ohne Beispielzeilen sehen Sie, wie die Seite aussieht, solange noch keine Projekte veröffentlicht sind.",
+    emptyTitle: "Noch keine Projekte veröffentlicht",
+    emptyText: "Erste Gemeinden befinden sich im Aufnahmeverfahren. Sobald eine Gemeinde in die Probephase aufgenommen ist, erscheint ihr Projekt hier.",
+    noneTitle: "Keine Projekte für diese Auswahl",
+    noneText: "Ändern Sie die Filter oder setzen Sie sie zurück."
+  },
+  en: {
+    pageTitle: "Projects",
+    h1: "Projects",
+    mapTitle: "Filter by county",
+    mapHint: "Click a county to show only its projects. Click again to clear the selection.",
+    filterTitle: "Selection",
+    fDate: "Application", fNeed: "Outstanding need", fSort: "Sorting", reset: "Reset",
+    dateOpts: ["All", "Last 30 days", "Last 3 months", "Last 12 months"],
+    needOpts: ["All", "Not quantified", "Under 10,000", "10,000 to 50,000", "Over 50,000", "Covered"],
+    sortOpts: ["Application, newest first", "Municipality A to Z", "Open need, highest first"],
+    county: "County", clear: "Clear selection",
+    count1: "1 project", countN: "{n} projects",
+    cols: ["No.", "Municipality", "County", "Need", "Status", "Application", "Outstanding need"],
+    status: { trial: "Probationary period", active: "Active cooperation", review: "Under review" },
+    needs: { neuter: "Neutering", register: "Registration" },
+    notQuant: "not quantified", covered: "covered",
+    sample: "Sample",
+    sampleToggle: "Show sample rows",
+    sampleNote: "Draft only. Without sample rows you see how the page looks while no projects have been published yet.",
+    emptyTitle: "No projects published yet",
+    emptyText: "The first municipalities are going through admission. As soon as a municipality enters the probationary period, its project appears here.",
+    noneTitle: "No projects for this selection",
+    noneText: "Change the filters or reset them."
+  },
+  ro: {
+    pageTitle: "Proiecte",
+    h1: "Proiecte",
+    mapTitle: "Filtrare după județ",
+    mapHint: "Un clic pe un județ afișează doar proiectele acestuia. Un al doilea clic anulează selecția.",
+    filterTitle: "Selecție",
+    fDate: "Cerere", fNeed: "Necesar neacoperit", fSort: "Sortare", reset: "Resetează",
+    dateOpts: ["Toate", "Ultimele 30 de zile", "Ultimele 3 luni", "Ultimele 12 luni"],
+    needOpts: ["Toate", "Necuantificată", "Sub 10.000", "Între 10.000 și 50.000", "Peste 50.000", "Acoperită"],
+    sortOpts: ["Cerere, cele mai noi întâi", "Primărie, A–Z", "Nevoie deschisă, cea mai mare întâi"],
+    county: "Județ", clear: "Anulați selecția",
+    count1: "1 proiect", countN: "{n} proiecte",
+    cols: ["Nr.", "Primărie", "Județ", "Necesitate", "Status", "Cerere", "Necesar neacoperit"],
+    status: { trial: "Perioadă de probă", active: "Cooperare activă", review: "În verificare" },
+    needs: { neuter: "Sterilizare", register: "Înregistrare" },
+    notQuant: "necuantificată", covered: "acoperită",
+    sample: "Exemplu",
+    sampleToggle: "Afișați rândurile exemplu",
+    sampleNote: "Doar în schiță. Fără rândurile exemplu vedeți cum arată pagina cât timp nu sunt încă proiecte publicate.",
+    emptyTitle: "Încă nu sunt proiecte publicate",
+    emptyText: "Primele primării sunt în procedura de înscriere. Imediat ce o primărie intră în perioada de probă, proiectul ei apare aici.",
+    noneTitle: "Niciun proiect pentru această selecție",
+    noneText: "Modificați filtrele sau resetați-le."
+  }
+}, (function () {
+  var DAY = 864e5, now = Date.now();
+  /* BEISPIELZEILEN für den Entwurf. Live kommen die Zeilen aus dem CAMRO-CRM. */
+  var SAMPLE = [
+    { nr: 1, gem: "Breaza", kreis: "PH", needs: ["neuter"], status: "trial", date: now - 40 * DAY, open: null },
+    { nr: 2, gem: "Bărcănești", kreis: "PH", needs: ["neuter", "register"], status: "trial", date: now - 12 * DAY, open: null }
+  ];
+  var st = { county: null, date: 0, need: 0, sort: 0, sample: true };
+  var map = null, $ = function (id) { return document.getElementById(id); }, bound = false;
+
+  function opts(sel, list, val) { sel.innerHTML = list.map(function (o, i) { return '<option value="' + i + '"' + (i === val ? " selected" : "") + '>' + CAMRO.esc(o) + '</option>'; }).join(""); }
+
+  function draw() {
+    var t = CAMRO.t, e = CAMRO.esc, lang = CAMRO.lang;
+    var cb = $("chipbox");
+    if (st.county) {
+      var c = CAMRO.county(st.county);
+      cb.innerHTML = '<span class="chip">' + e(t("county") + ": " + c[1]) + '<button type="button" id="clearC" aria-label="' + e(t("clear")) + '">×</button></span>';
+      $("clearC").onclick = function () { st.county = null; map.select(null); draw(); };
+    } else cb.innerHTML = "";
+
+    var rows = st.sample ? SAMPLE.slice() : [];
+    var total = rows.length;
+    rows = rows.filter(function (r) {
+      if (st.county && r.kreis !== st.county) return false;
+      if (st.date) { var lim = [0, 30, 91, 365][st.date] * DAY; if (now - r.date > lim) return false; }
+      if (st.need === 1 && r.open !== null) return false;
+      if (st.need === 2 && !(r.open > 0 && r.open < 10000)) return false;
+      if (st.need === 3 && !(r.open >= 10000 && r.open <= 50000)) return false;
+      if (st.need === 4 && !(r.open > 50000)) return false;
+      if (st.need === 5 && r.open !== 0) return false;
+      return true;
+    });
+    rows.sort(function (a, b) {
+      if (st.sort === 1) return a.gem.localeCompare(b.gem, lang);
+      if (st.sort === 2) return (b.open || -1) - (a.open || -1);
+      return b.date - a.date;
+    });
+    $("count").textContent = rows.length === 1 ? t("count1") : t("countN").replace("{n}", rows.length);
+
+    if (!rows.length) {
+      var empty = total === 0;
+      $("tbox").innerHTML = '<div class="emptystate"><h3>' + e(t(empty ? "emptyTitle" : "noneTitle")) + '</h3><p class="muted">' + e(t(empty ? "emptyText" : "noneText")) + '</p></div>';
+      return;
+    }
+    var df = new Intl.DateTimeFormat(lang === "en" ? "en-GB" : lang === "ro" ? "ro-RO" : "de-DE");
+    var cols = t("cols");
+    $("tbox").innerHTML = '<table><caption class="skip">' + e(t("h1")) + '</caption><thead><tr>' +
+      cols.map(function (h, i) { return '<th scope="col"' + (i === 6 ? ' class="num"' : "") + '>' + e(h) + '</th>'; }).join("") + '</tr></thead><tbody>' +
+      rows.map(function (r) {
+        var open = r.open === null ? t("notQuant") : r.open === 0 ? t("covered") : CAMRO.fmt(r.open);
+        return '<tr><td>' + r.nr + '</td><td><span class="gem">' + e(r.gem) + '</span><span class="sample">' + e(t("sample")) + '</span></td>' +
+          '<td>' + e(CAMRO.county(r.kreis)[1]) + '</td><td>' + e(r.needs.map(function (n) { return t("needs")[n]; }).join(", ")) + '</td>' +
+          '<td><span class="badge b-' + r.status + '">' + e(t("status")[r.status]) + '</span></td><td>' + df.format(new Date(r.date)) + '</td>' +
+          '<td class="num">' + e(open) + '</td></tr>';
+      }).join("") + '</tbody></table>';
+  }
+
+  return function (lang, t) {
+    if (!map) map = CAMRO.tileMap($("grid"), { allowNone: true, onPick: function (c) { st.county = c; draw(); } });
+    map.render(); CAMRO.legend($("legend"));
+    opts($("fDate"), t("dateOpts"), st.date); opts($("fNeed"), t("needOpts"), st.need); opts($("fSort"), t("sortOpts"), st.sort);
+    if (!bound) {
+      bound = true;
+      $("fDate").onchange = function () { st.date = +this.value; draw(); };
+      $("fNeed").onchange = function () { st.need = +this.value; draw(); };
+      $("fSort").onchange = function () { st.sort = +this.value; draw(); };
+      $("sample").onchange = function () { st.sample = this.checked; draw(); };
+      $("reset").onclick = function () {
+        st.county = null; st.date = 0; st.need = 0; st.sort = 0; map.select(null);
+        $("fDate").value = 0; $("fNeed").value = 0; $("fSort").value = 0; draw();
+      };
+    }
+    draw();
+  };
+})());
+</script>
+</body>
+</html>

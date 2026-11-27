@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Für Gemeinden – CAMRO</title>
+<link rel="icon" href="logo/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="logo/apple-touch-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/camro.css">
+<style>
+.areas{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0 48px}
+.areas li{padding:18px 0;border-top:1px solid var(--line);font-size:18px;font-weight:600}
+.cofin{display:flex;flex-wrap:wrap;gap:24px 64px;align-items:flex-start}
+.cofin h2{flex:1 1 300px;font-size:clamp(28px,3.2vw,40px);font-weight:800;line-height:1.08;letter-spacing:-.02em}
+.cofin p{flex:2 1 420px;font-size:19px;line-height:1.6}
+.ask{display:flex;flex-wrap:wrap;gap:24px 48px;align-items:center;justify-content:space-between;background:var(--white);border-radius:10px;padding:clamp(28px,4vw,48px)}
+.ask h2{font-size:30px;font-weight:800;letter-spacing:-.015em;margin-bottom:10px}
+.ask p{max-width:34em}
+</style>
+</head>
+<body data-page="gemeinden.html">
+<div id="site-header"></div>
+
+<main id="main">
+  <section class="wrap page-head">
+    <h1 data-i18n="h1"></h1>
+    <p class="lead" data-i18n="lead"></p>
+  </section>
+
+  <section class="wrap sec">
+    <h2 class="sec-title" data-i18n="whoTitle"></h2>
+    <div class="split">
+      <div><h3 class="list-head" style="color:var(--pine)" data-i18n="whoYes"></h3><ul class="ticks" id="whoYes"></ul></div>
+      <div><h3 class="list-head" data-i18n="whoNo"></h3><ul class="dashes" id="whoNo"></ul></div>
+    </div>
+    <p class="small" style="margin-top:20px;max-width:44em" data-i18n="whoNote"></p>
+  </section>
+
+  <section class="band-white">
+    <div class="wrap sec split">
+      <div>
+        <h2 class="sec-title" data-i18n="preTitle"></h2>
+        <ul class="ticks" id="pre"></ul>
+      </div>
+      <div>
+        <h2 class="sec-title" data-i18n="minTitle"></h2>
+        <h3 class="list-head" data-i18n="minHead"></h3>
+        <ul class="ticks" id="min"></ul>
+        <p style="margin-top:20px"><a class="textlink" href="kriterien.html" data-i18n="minLink"></a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap sec">
+    <h2 class="sec-title" data-i18n="areasTitle"></h2>
+    <p class="lead" style="margin-bottom:32px" data-i18n="areasLead"></p>
+    <ul class="areas" id="areas"></ul>
+  </section>
+
+  <section class="band-pine">
+    <div class="wrap sec cofin">
+      <h2 data-i18n="cofinTitle"></h2>
+      <p data-i18n="cofinText"></p>
+    </div>
+  </section>
+
+  <section class="wrap" id="anfrage" style="padding-top:72px;padding-bottom:96px">
+    <div class="ask">
+      <div>
+        <h2 data-i18n="askTitle"></h2>
+        <p data-i18n="askText"></p>
+      </div>
+      <a class="btn btn-dark js-form" href="https://app.camro.ro/anfrage-stellen/?lang=de" data-i18n="askBtn"></a>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="assets/camro.js"></script>
+<script>
+/* Texte: wörtlich von camro.ro (Stand 27.11.2026). Abweichungen stehen in der Gegenüberstellung. */
+CAMRO.page({
+  de: {
+    pageTitle: "Für Gemeinden",
+    h1: "Gemeinsam tragfähige Lösungen für den kommunalen Tierschutz entwickeln.",
+    lead: "CAMRO richtet sich an Gemeinden und kommunale Entscheidungsträger in Rumänien, die Unterstützungsbedarf beim Management von Straßen- und Besitzerhunden haben und ergänzende, strukturierte Unterstützung suchen. Die Teilnahme ist freiwillig und unverbindlich.",
+    whoTitle: "Wer kann eine Anfrage stellen?",
+    whoYes: "Antragsberechtigt", whoNo: "Nicht antragsberechtigt",
+    whoYesList: ["Bürgermeisterinnen und Bürgermeister", "kommunale Verwaltungen", "offiziell beauftragte Entscheidungsträger"],
+    whoNoList: ["private Einzelpersonen", "informelle Initiativen ohne kommunale Legitimation"],
+    whoNote: "Hinweis: Die Teilnahme an CAMRO entbindet Gemeinden nicht von ihren gesetzlichen oder kommunalen Verpflichtungen und Zuständigkeiten.",
+    preTitle: "Was eine Anfrage voraussetzt.",
+    preList: ["Es bestehen bereits eigene Maßnahmen im kommunalen Tierschutz.", "Der Unterstützungsbedarf wird konkret benannt.", "Transparenz über geplante und laufende Maßnahmen ist gewährleistet."],
+    minTitle: "Diese Punkte gelten für jede Gemeinde.",
+    minHead: "Mindestvoraussetzungen",
+    minList: ["Benennung eines festen Ansprechpartners innerhalb der Verwaltung", "Einhaltung geltender rechtlicher Vorgaben", "Keine Anwendung von Tötung als Instrument der Populationskontrolle während der Teilnahme an CAMRO"],
+    minLink: "Vollständiger Kriterienkatalog & Ausschlusskriterien",
+    areasTitle: "Mögliche Unterstützungsbereiche.",
+    areasLead: "Die konkrete Ausgestaltung erfolgt projektbezogen nach Prüfung.",
+    areasList: ["Kastrationsprogramme", "Betrieb und Weiterentwicklung öffentlicher Tierheime", "Förderung von Adoptionen", "Registrierung und Kennzeichnung von Hunden", "Präventive Bildungsarbeit, z. B. an Schulen"],
+    cofinTitle: "Ko-Finanzierungsmodelle.",
+    cofinText: "CAMRO fördert Ko-Finanzierungsmodelle, bei denen Gemeinden selbst einen angemessenen Eigenanteil tragen. In geeigneten Fällen können kommunale Maßnahmen durch externe Partner kofinanziert oder ergänzt werden. Eine automatische Finanzierung ist damit nicht verbunden.",
+    askTitle: "Struktur schaffen, Verantwortung stärken.",
+    askText: "CAMRO unterstützt Gemeinden dabei, kommunalen Tierschutz wirksam und transparent umzusetzen.",
+    askBtn: "Anfrage stellen"
+  },
+  en: {
+    pageTitle: "For municipalities",
+    h1: "Developing sustainable solutions for municipal animal welfare together.",
+    lead: "CAMRO is aimed at municipalities and local decision-makers in Romania that need support in managing stray and owner-neglected dogs and are committed to humane, sustainable solutions. Participation is voluntary and non-binding.",
+    whoTitle: "Who can submit a request?",
+    whoYes: "Eligible to apply", whoNo: "Not eligible",
+    whoYesList: ["Mayors", "Municipal administrations", "Officially appointed decision-makers"],
+    whoNoList: ["Private individuals", "Informal initiatives without municipal mandate"],
+    whoNote: "Note: Participation in CAMRO does not release municipalities from their legal or municipal obligations and responsibilities.",
+    preTitle: "What a request requires.",
+    preList: ["Existing own measures in municipal animal welfare are in place.", "The support needs are clearly identified.", "Transparency about planned and ongoing measures is ensured."],
+    minTitle: "These criteria apply to every municipality.",
+    minHead: "Minimum requirements",
+    minList: ["Designation of a dedicated contact person within the administration", "Compliance with applicable legal requirements", "No use of killing as a population control measure during participation in CAMRO"],
+    minLink: "Full criteria catalogue & exclusion criteria",
+    areasTitle: "Possible areas of support.",
+    areasLead: "The specific design is determined on a project basis after review.",
+    areasList: ["Spay and neuter campaigns", "Operation and development of public shelters", "Promotion of adoptions", "Registration and identification of dogs", "Preventive educational work, e. g. in schools"],
+    cofinTitle: "Co-financing models.",
+    cofinText: "CAMRO supports co-financing models in which municipalities contribute an appropriate share themselves. In suitable cases, municipal measures may be co-financed or complemented by external partners. This does not entail automatic funding.",
+    askTitle: "Creating structure, strengthening responsibility.",
+    askText: "CAMRO supports municipalities in implementing municipal animal welfare effectively and transparently.",
+    askBtn: "Submit a request"
+  },
+  ro: {
+    pageTitle: "Pentru primării",
+    h1: "Dezvoltăm împreună soluții durabile pentru protecția animalelor la nivel municipal.",
+    lead: "CAMRO se adresează primăriilor și factorilor de decizie locali din România care au nevoie de sprijin în gestionarea câinilor comunitari și optează pentru soluții umane și durabile. Participarea este voluntară și fără angajamente.",
+    whoTitle: "Cine poate trimite o cerere?",
+    whoYes: "Eligibil", whoNo: "Neeligibil",
+    whoYesList: ["Primari și primărese", "Administrații locale", "Factori de decizie oficial desemnați"],
+    whoNoList: ["Persoane fizice private", "Inițiative informale fără legitimare municipală"],
+    whoNote: "Notă: Participarea la CAMRO nu scutește primăriile de obligațiile și responsabilitățile lor legale sau municipale.",
+    preTitle: "Ce presupune o cerere.",
+    preList: ["Există deja măsuri proprii în domeniul protecției animalelor la nivel municipal.", "Nevoile de sprijin sunt identificate concret.", "Transparența cu privire la măsurile planificate și în curs este asigurată."],
+    minTitle: "Aceste criterii se aplică fiecărei primării.",
+    minHead: "Condiții minime",
+    minList: ["Desemnarea unui responsabil permanent în cadrul administrației", "Respectarea prevederilor legale în vigoare", "Neaplicarea eutanasierii ca instrument de control al populației pe durata participării la CAMRO"],
+    minLink: "Catalog complet de criterii & criterii de excludere",
+    areasTitle: "Domenii posibile de sprijin.",
+    areasLead: "Configurarea concretă se realizează pe bază de proiect, după verificare.",
+    areasList: ["Campanii de sterilizare", "Operarea și dezvoltarea adăposturilor publice", "Promovarea adopțiilor", "Înregistrarea și identificarea câinilor", "Activități educative preventive, de ex. în școli"],
+    cofinTitle: "Modele de cofinanțare.",
+    cofinText: "CAMRO promovează modele de cofinanțare în care primăriile contribuie ele însele cu o cotă adecvată. În cazuri potrivite, măsurile municipale pot fi cofinanțate sau completate de parteneri externi. Aceasta nu implică o finanțare automată.",
+    askTitle: "Creăm structură, consolidăm responsabilitatea.",
+    askText: "CAMRO sprijină primăriile în implementarea eficientă și transparentă a protecției animalelor la nivel municipal.",
+    askBtn: "Trimite o cerere"
+  }
+}, function (lang, t) {
+  var e = CAMRO.esc, li = function (a) { return a.map(function (x) { return '<li>' + e(x) + '</li>'; }).join(""); };
+  document.getElementById("whoYes").innerHTML = li(t("whoYesList"));
+  document.getElementById("whoNo").innerHTML = li(t("whoNoList"));
+  document.getElementById("pre").innerHTML = li(t("preList"));
+  document.getElementById("min").innerHTML = li(t("minList"));
+  document.getElementById("areas").innerHTML = li(t("areasList"));
+  document.querySelectorAll(".js-form").forEach(function (a) { a.href = "https://app.camro.ro/anfrage-stellen/?lang=" + lang; });
+});
+</script>
+</body>
+</html>

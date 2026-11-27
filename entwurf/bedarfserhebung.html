@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bedarfserhebung 2026 – CAMRO</title>
+<link rel="icon" href="logo/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="logo/apple-touch-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/camro.css">
+<style>
+.kpis{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:28px}
+.kpis li{border-top:3px solid var(--ink);padding-top:16px}
+.kpis .l{font-size:15px;color:var(--muted);font-weight:600}
+.kpis b{display:block;font-size:clamp(44px,5vw,64px);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-top:4px}
+.kpis .n{font-size:15px;color:var(--text2)}
+.kpis .m{margin-top:12px;height:8px;border-radius:0 4px 4px 0;background:var(--stone)}
+.kpis .m i{display:block;height:100%;min-width:3px;border-radius:0 4px 4px 0;background:var(--pine)}
+.howto{margin-top:40px;max-width:52em}
+.howto h2{font-size:20px;font-weight:700;margin-bottom:8px}
+.sec-sub{font-size:15px;color:var(--muted);font-weight:600;margin:-12px 0 28px}
+.para{max-width:46em;margin-top:24px;color:var(--text2)}
+.call{margin-top:32px;padding:20px 22px;background:var(--raps-soft);border-radius:8px;max-width:52em}
+.call b{display:block;font-size:14px;margin-bottom:4px}
+.call p{font-size:18px;font-weight:600;line-height:1.45}
+.call p + p{font-size:16px;font-weight:400;margin-top:8px}
+.box{padding:18px 20px;border:1px solid var(--line);border-radius:8px;background:var(--white)}
+.box b{display:block;font-size:15px;margin-bottom:6px}
+.box p + p{margin-top:8px;font-size:15px;color:var(--text2)}
+.defs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px 48px;margin:24px 0 36px;max-width:60em}
+.defs h3{font-size:17px;font-weight:700;margin-bottom:4px}
+.defs p{font-size:15px;color:var(--text2)}
+.gaps{list-style:none;margin:0 0 48px;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:32px}
+.gaps li b{display:block;font-size:clamp(52px,6vw,76px);font-weight:800;line-height:1;letter-spacing:-.03em}
+.gaps .m{margin-top:14px;height:10px;border-radius:0 4px 4px 0;background:var(--stone)}
+.gaps .m i{display:block;height:100%;border-radius:0 4px 4px 0;background:var(--pine)}
+.gaps span{display:block;margin-top:12px;font-size:17px;font-weight:600}
+.gaps small{display:block;font-size:15px;color:var(--muted)}
+.prio{display:flex;flex-wrap:wrap;gap:40px 72px;align-items:flex-start}
+.prio .figs{flex:1 1 280px;display:flex;flex-direction:column;gap:28px}
+.prio .figs b{display:block;font-size:clamp(64px,8vw,104px);font-weight:800;line-height:.9;letter-spacing:-.04em;color:var(--raps)}
+.prio .figs span{display:block;margin-top:8px;font-size:18px;color:var(--white);font-weight:600}
+.prio .figs small{display:block;font-size:15px;color:var(--on-ink)}
+.prio .chart{flex:1.3 1 380px;min-width:0}
+.prio .chart h3{color:var(--white)}
+.prio .bars .fill{background:var(--raps)}
+.prio .bars .track::before{background:var(--ink-line)}
+.prio .bars li{color:var(--white)}
+.band-ink .sec-title{color:var(--white)}
+.band-ink .sec-sub{color:var(--on-ink)}
+.tbox table{min-width:640px}
+</style>
+</head>
+<body data-page="bedarfserhebung.html">
+<div id="site-header"></div>
+<main id="main"></main>
+<div id="site-footer"></div>
+<script src="assets/camro.js"></script>
+<script>
+/* Texte und Zahlen: wörtlich von camro.ro/bedarfserhebung-2026 (Stand 27.11.2026). */
+(function () {
+  var D = {
+    de: {
+      pageTitle: "Bedarfserhebung 2026",
+      asof: "Stand 07.09.2026",
+      h1: "Was rumänische Gemeinden wirklich brauchen",
+      lead: "Wir haben 3.001 Gemeinden gefragt, wie sie heute mit Straßen- und Besitzerhunden umgehen und wo sie an Grenzen stoßen. 105 Antworten konnten wir auswerten. Hier sind die Ergebnisse – vollständig und ohne Beschönigung.",
+      kpis: [["Angeschriebene Gemeinden", "3.001", "", 3001], ["Antworten eingegangen", "132", "entspricht 4,4 % Rücklauf", 132], ["Ausgewertete Antworten", "105", "mit ausdrücklicher Einwilligung", 105]],
+      howTitle: "Wie diese Zahlen zu lesen sind",
+      how: ["Von 3.001 angeschriebenen Gemeinden haben 132 geantwortet. Ausgewertet sind die 105 Antworten, für die eine ausdrückliche Einwilligung zur Auswertung vorliegt.",
+        "Eine Rücklaufquote von 4,4 % bedeutet: Die Teilnehmenden sind eine selbstselektierte Gruppe – vermutlich Gemeinden mit überdurchschnittlicher Verwaltungskapazität, wahrgenommenem Handlungsdruck oder beidem.",
+        "Die Ergebnisse sind als Bild der antwortenden Gemeinden zu lesen, nicht als repräsentativer Querschnitt aller rumänischen Gemeinden.",
+        "Gemeinden werden ausschließlich auf Kreis-Ebene ausgewiesen, niemals namentlich. Stand der Auswertung: 07.09.2026."],
+      who: ["Wer geantwortet hat", "105 antwortende Gemeinden"],
+      region: ["Region (historische Landesregion)", [["Moldova", 32], ["Muntenia", 26], ["Transilvania", 19], ["Banat", 8], ["Crișana", 6], ["Oltenia", 6], ["Maramureș", 5], ["Dobrogea", 3]]],
+      size: ["Gemeindegröße (Einwohner)", [["2.000–10.000", 69], ["unter 2.000", 21], ["10.001–50.000", 13], ["über 50.000", 2]]],
+      whoNote: "Die Erhebung erreicht vor allem kleine und mittlere Landgemeinden – genau dort, wo Straßenhunde selten auf eigene Strukturen treffen.",
+      situ: ["Die Situation vor Ort", "Selbsteinschätzung der Gemeinden"],
+      dogs: ["Freilaufende Hunde (geschätzt)", [["0–20", 34], ["21–50", 32], ["51–150", 21], ["151–400", 10], ["über 400", 1], ["unbekannt", 7]]],
+      trend: ["Entwicklung (letzte 2 Jahre)", [["stark rückläufig", 13], ["leicht rückläufig", 26], ["stabil", 31], ["leicht steigend", 20], ["stark steigend", 15]]],
+      unneut: ["Unkastrierte Hunde – inklusive Hunde mit Besitzer", "33 Gemeinden können diese Zahl gar nicht einschätzen.", "Bei den sichtbaren Straßenhunden mussten nur 7 Gemeinden passen. Kastration betrifft aber nicht nur Straßenhunde, deshalb wurde bewusst nach allen unkastrierten Hunden gefragt – und dort endet die Kenntnis der Verwaltung."],
+      meas: ["Was bisher getan wird", "Aktuell genutzte Maßnahmen · Mehrfachnennung möglich", [["CNVR – Fangen, Kastrieren, Impfen, Zurücksetzen", 43], ["keine systematische Methode", 42], ["Vermittlung / Adoption", 25], ["Shelter dauerhaft", 17], ["Tötung", 6]]],
+      measCall: ["Der auffälligste Befund", "Fast ebenso viele Gemeinden arbeiten ohne jede systematische Methode, wie CNVR einsetzen."],
+      gapsT: ["Welche Strukturen fehlen", "Ressourcen in den antwortenden Gemeinden"],
+      gaps: [["79 %", 79, "kein eigenes Tierheim", "83 von 105"], ["55 %", 55, "kein festes Jahresbudget", "58 von 105"], ["57 %", 57, "keine feste Zuständigkeit", "60 von 105"]],
+      vet: ["Tierärztliche Versorgung", [["eigener Tierarzt / Vertrag", 45], ["nächster < 20 km", 32], ["keine geregelte Versorgung", 21], ["nächster > 20 km", 7]]],
+      budget: ["Budget pro Jahr", [["kein festes Budget", 58], ["25.000–100.000 RON", 25], ["unter 25.000 RON", 14], ["100.001–250.000 RON", 6], ["über 250.000 RON", 2]]],
+      prob: ["Wo der Schuh am meisten drückt", "Sieben Bereiche, bewertet auf einer Skala von 1 bis 5"],
+      probIntro: "Die Gemeinden haben sieben Bereiche bewertet: 1 = kein Problem, 5 = großes Problem. Ausgewiesen ist jeweils der Durchschnitt aller 105 Antworten. Zwei Bereiche brauchen eine Erläuterung, weil ihre Bezeichnung missverständlich sein kann:",
+      probDefs: [["Rechtliche / administrative Anforderungen", "Der bürokratische Aufwand bei der Umsetzung – Genehmigungsverfahren, Vergabevorschriften, Berichtspflichten gegenüber Kreisrat und Präfektur. Nicht gemeint sind rechtliche Fragen des Tierschutzes selbst."],
+        ["Akzeptanz / Bürgerbeschwerden", "Wie sehr die Umsetzung durch mangelnde Akzeptanz in der Bevölkerung erschwert wird – Beschwerden über Straßenhunde, aber auch Widerstand gegen bestimmte Maßnahmen."]],
+      probItems: [["Rechtl. / administrative Anford.", 2.83, "Ø 2,83"], ["Akzeptanz / Bürgerbeschwerden", 2.71, "Ø 2,71"], ["Tierärztliche Kapazität", 2.70, "Ø 2,70"], ["Finanzierung / Budget", 2.45, "Ø 2,45"], ["Vermittlung / Adoption", 2.27, "Ø 2,27"], ["Personal / Know-how", 1.85, "Ø 1,85"], ["Infrastruktur", 1.74, "Ø 1,74"]],
+      probCall: ["Bemerkenswert", "Nicht Geld und nicht Personal stehen oben, sondern Bürokratie und Akzeptanz vor Ort.", "Alle sieben Werte liegen unter 3 – die Belastung wird im Mittel als moderat eingestuft. Entscheidend ist deshalb weniger die absolute Höhe als die Reihenfolge."],
+      coop: ["Zusammenarbeit bisher", "Erfahrung mit Tierschutzorganisationen"],
+      coopStatus: ["Kooperationsstatus", [["nie", 63], ["aktuell laufend", 23], ["früher, aktuell nicht", 19]]],
+      coopWhy: ["Grund, falls „nie“ (n = 63)", [["keine Organisation bekannt", 19], ["kein Bedarf", 18], ["Vorbehalte", 16], ["Sonstiges", 8]]],
+      coopCall: ["Der häufigste Grund für „nie“", "Nicht fehlender Bedarf, nicht Ablehnung – sondern: keine Organisation bekannt."],
+      wish: ["Welche Unterstützung gewünscht wird", "Mehrfachnennung möglich · 105 Gemeinden"],
+      wishType: ["Gewünschte Unterstützungsart", [["Kastrationsprogramme", 93], ["Registrierung / Chip", 54], ["Förderung von Adoptionen", 44], ["Bildungsarbeit", 44], ["Entwurmung / Impfung", 42], ["Tierheime", 41]]],
+      wishNeed: ["Geschätzter Bedarf (pro Jahr)", [["25.000–100.000 RON", 47], ["100.001–250.000 RON", 16], ["nicht einschätzbar", 16], ["unter 25.000 RON", 13], ["250.001–500.000 RON", 7], ["über 500.000 RON", 6]]],
+      wishNote: "Gefragt war der jährliche Unterstützungsbedarf – unabhängig vom aktuellen eigenen Budget. Zur Einordnung: 100.000 RON entsprechen rund 20.000 Euro.",
+      wishCall: ["Eindeutigstes Ergebnis der gesamten Erhebung", "93 von 105 Gemeinden wünschen sich Unterstützung bei Kastrationsprogrammen."],
+      prioT: ["Wo der Handlungsdruck am größten ist", "Priorisierungs-Kandidaten"],
+      prioIntro: "Am Ende des Fragebogens standen zwei Fragen: „Wie dringend ist der Handlungsbedarf?“ und „Wie offen sind Sie für eine Zusammenarbeit mit CAMRO?“ – jeweils auf einer Skala von 1 bis 5. Als Priorisierungs-Kandidat gilt eine Gemeinde, die beide Fragen mit 4 oder 5 beantwortet hat.",
+      prioFigs: [["53", "Priorisierungs-Kandidaten", "von 105 Gemeinden – die Hälfte"], ["29", "Kreise mit mindestens einem Kandidaten", "ohne Nennung einzelner Gemeinden"]],
+      prioChart: "Kreise mit den meisten Kandidaten",
+      prioNote: "Aus Datenschutzgründen werden ausschließlich Kreise genannt. Weitere 14 Kreise haben jeweils einen Kandidaten.",
+      good: ["Was schon gut funktioniert", "Kooperationen, die von Gemeinden mit 5 von 5 bewertet wurden", ["Organisation", "Kreis", "Was daran gut war"]],
+      goodRows: ["Mehrere erfolgreiche Kastrationskampagnen mit spürbarer Wirkung in der Gemeinde", "Regelmäßige Kastration und Chippierung – bei Straßenhunden ebenso wie bei Hunden mit Besitzer", "Eindämmung der unkontrollierten Vermehrung von Straßenhunden", "Konstante, prompte Unterstützung mit Finanzierung und Sachspenden, sehr gute Kommunikation", "Über 160 kastrierte Tiere in zwei Kampagnen im letzten Jahr, die dritte ist bereits organisiert", "Dreiecksmodell: Tierarztpraxis übernimmt das Einfangen, Tierheim übernimmt Unterbringung und Vermittlung"],
+      orgs: ["Wo Tierschutzorganisationen sitzen", "Externer Vergleich · nicht Teil der Bedarfserhebung"],
+      orgsNote: "Stichprobe aus einem einzelnen Online-Verzeichnis (protectiaanimalelor.org, September 2026). Kein Anspruch auf Vollständigkeit – die Zahlen zeigen eine Tendenz, keine amtliche Statistik.",
+      next: ["Gemeinden und Organisationen finden nicht zueinander", "Was wir aus der Erhebung mitnehmen"],
+      nextPs: ["Der häufigste Grund dafür, dass eine Gemeinde noch nie mit einer Tierschutzorganisation zusammengearbeitet hat, ist weder fehlender Bedarf noch Ablehnung – es ist fehlende Kenntnis. Gleichzeitig arbeiten in Rumänien zahlreiche Organisationen und mobile Kastrationsteams, die genau diese Lücke schließen könnten.",
+        "Deshalb bauen wir als nächsten Schritt eine nach Regionen sortierte Übersicht auf: Organisationen und Kastrationsteams, die in Rumänien tätig sind – damit jede Gemeinde sehen kann, wer in ihrer Nähe arbeitet.",
+        "Sie sind eine Organisation oder ein Kastrationsteam und möchten in diese Übersicht aufgenommen werden? Melden Sie sich bei uns."],
+      thanks: ["Danke an alle Gemeinden, die sich die Zeit genommen haben", "105 ausgewertete Antworten aus acht Regionen Rumäniens zeigen, wo Straßenhunde ein Thema sind, wo Strukturen fehlen und wo Gemeinden bereit sind, etwas zu verändern.", "Anfrage stellen", "Kooperation anfragen"]
+    },
+    en: {
+      pageTitle: "Needs assessment 2026",
+      asof: "as of 07 September 2026",
+      h1: "What Romanian municipalities actually need",
+      lead: "We asked 3,001 municipalities how they currently manage stray and owned dogs and where they reach their limits. 105 responses could be analysed. Here are the results – in full and without varnish.",
+      kpis: [["Municipalities contacted", "3,001", "", 3001], ["Responses received", "132", "a response rate of 4.4 %", 132], ["Responses analysed", "105", "with explicit consent", 105]],
+      howTitle: "How to read these figures",
+      how: ["Of 3,001 municipalities contacted, 132 responded. The analysis covers the 105 responses for which explicit consent to processing was given.",
+        "A response rate of 4.4 % means the participants are a self-selected group – presumably municipalities with above-average administrative capacity, a perceived pressure to act, or both.",
+        "The results should be read as a picture of the responding municipalities, not as a representative cross-section of all Romanian municipalities.",
+        "Municipalities are reported at county level only, never by name. Data as of 7 September 2026."],
+      who: ["Who responded", "105 responding municipalities"],
+      region: ["Region (historical region)", [["Moldova", 32], ["Muntenia", 26], ["Transilvania", 19], ["Banat", 8], ["Crișana", 6], ["Oltenia", 6], ["Maramureș", 5], ["Dobrogea", 3]]],
+      size: ["Size of municipality (inhabitants)", [["2,000–10,000", 69], ["under 2,000", 21], ["10,001–50,000", 13], ["over 50,000", 2]]],
+      whoNote: "The survey mainly reaches small and medium-sized rural municipalities – exactly where stray dogs rarely meet any dedicated structures.",
+      situ: ["The situation on the ground", "Self-assessment by the municipalities"],
+      dogs: ["Free-roaming dogs (estimated)", [["0–20", 34], ["21–50", 32], ["51–150", 21], ["151–400", 10], ["over 400", 1], ["unknown", 7]]],
+      trend: ["Trend (past 2 years)", [["falling sharply", 13], ["falling slightly", 26], ["stable", 31], ["rising slightly", 20], ["rising sharply", 15]]],
+      unneut: ["Unneutered dogs – including dogs with owners", "33 municipalities cannot estimate this figure at all.", "For visible stray dogs, only 7 municipalities had to pass. But neutering does not concern stray dogs alone, which is why we deliberately asked about all unneutered dogs – and that is where the administration’s knowledge ends."],
+      meas: ["What is being done so far", "Measures currently in use · multiple answers possible", [["CNVR – catch, neuter, vaccinate, return", 43], ["no systematic method", 42], ["adoption / rehoming", 25], ["permanent shelter", 17], ["killing", 6]]],
+      measCall: ["The most striking finding", "Almost as many municipalities work without any systematic method as use CNVR."],
+      gapsT: ["Which structures are missing", "Resources in the responding municipalities"],
+      gaps: [["79 %", 79, "no shelter of their own", "83 of 105"], ["55 %", 55, "no fixed annual budget", "58 of 105"], ["57 %", 57, "no assigned responsibility", "60 of 105"]],
+      vet: ["Veterinary provision", [["own vet / contract", 45], ["nearest < 20 km", 32], ["no regular provision", 21], ["nearest > 20 km", 7]]],
+      budget: ["Annual budget", [["no fixed budget", 58], ["25,000–100,000 RON", 25], ["under 25,000 RON", 14], ["100,001–250,000 RON", 6], ["over 250,000 RON", 2]]],
+      prob: ["Where the shoe pinches most", "Seven areas, rated on a scale from 1 to 5"],
+      probIntro: "Municipalities rated seven areas: 1 = no problem, 5 = major problem. Shown is the average across all 105 responses. Two areas need an explanation, because their labels can be misread:",
+      probDefs: [["Legal / administrative requirements", "The bureaucratic effort of implementation – approval procedures, public procurement rules, reporting obligations towards the county council and the prefecture. This does not refer to legal questions of animal welfare itself."],
+        ["Public acceptance / complaints", "The extent to which implementation is hampered by a lack of acceptance among residents – complaints about stray dogs, but also resistance to particular measures."]],
+      probItems: [["Legal / administrative req.", 2.83, "Ø 2.83"], ["Acceptance / complaints", 2.71, "Ø 2.71"], ["Veterinary capacity", 2.70, "Ø 2.70"], ["Funding / budget", 2.45, "Ø 2.45"], ["Adoption / rehoming", 2.27, "Ø 2.27"], ["Staff / know-how", 1.85, "Ø 1.85"], ["Infrastructure", 1.74, "Ø 1.74"]],
+      probCall: ["Worth noting", "Neither money nor staff come first, but bureaucracy and local acceptance.", "All seven values are below 3 – on average the burden is rated as moderate. What matters is therefore less the absolute level than the ranking."],
+      coop: ["Cooperation so far", "Experience with animal welfare organisations"],
+      coopStatus: ["Cooperation status", [["never", 63], ["currently ongoing", 23], ["in the past, not now", 19]]],
+      coopWhy: ["Reason, if “never” (n = 63)", [["no organisation known", 19], ["no need", 18], ["reservations", 16], ["other", 8]]],
+      coopCall: ["The most common reason for “never”", "Not a lack of need, not rejection – simply: no organisation known."],
+      wish: ["What support is wanted", "Multiple answers possible · 105 municipalities"],
+      wishType: ["Type of support requested", [["Neutering programmes", 93], ["Registration / microchipping", 54], ["Promoting adoptions", 44], ["Education and outreach", 44], ["Deworming / vaccination", 42], ["Shelters", 41]]],
+      wishNeed: ["Estimated need (per year)", [["25,000–100,000 RON", 47], ["100,001–250,000 RON", 16], ["cannot estimate", 16], ["under 25,000 RON", 13], ["250,001–500,000 RON", 7], ["over 500,000 RON", 6]]],
+      wishNote: "The question asked for the annual need for support – independent of the municipality’s own current budget. For orientation: 100,000 RON is roughly 20,000 euros.",
+      wishCall: ["The clearest result of the entire survey", "93 of 105 municipalities want support with neutering programmes."],
+      prioT: ["Where the pressure to act is greatest", "Priority candidates"],
+      prioIntro: "Two questions closed the questionnaire: “How urgent is the need to act?” and “How open are you to cooperating with CAMRO?” – each on a scale from 1 to 5. A municipality counts as a priority candidate if it answered both questions with 4 or 5.",
+      prioFigs: [["53", "priority candidates", "of 105 municipalities – half of them"], ["29", "counties with at least one candidate", "reported without naming individual municipalities"]],
+      prioChart: "Counties with the most candidates",
+      prioNote: "For data protection reasons only counties are named. A further 14 counties have one candidate each.",
+      good: ["What already works well", "Cooperations rated 5 out of 5 by municipalities", ["Organisation", "County", "What worked well"]],
+      goodRows: ["Several successful neutering campaigns with a noticeable effect in the municipality", "Regular neutering and microchipping – for stray dogs as well as dogs with owners", "Curbing the uncontrolled breeding of stray dogs", "Steady, prompt support through funding and material donations, very good communication", "Over 160 animals neutered in two campaigns last year, the third is already organised", "Triangle model: the veterinary practice does the catching, the shelter handles housing and rehoming"],
+      orgs: ["Where animal welfare organisations are based", "External comparison · not part of the survey"],
+      orgsNote: "Sample from a single online directory (protectiaanimalelor.org, September 2026). No claim to completeness – the figures show a tendency, not official statistics.",
+      next: ["Municipalities and organisations are not finding each other", "What we take from the survey"],
+      nextPs: ["The most common reason why a municipality has never worked with an animal welfare organisation is neither a lack of need nor rejection – it is a lack of knowledge. At the same time, numerous organisations and mobile neutering teams work in Romania that could close precisely this gap.",
+        "That is why our next step is to build a directory sorted by region: organisations and neutering teams active in Romania – so that every municipality can see who works nearby.",
+        "Are you an organisation or a neutering team and would like to be included in this directory? Get in touch with us."],
+      thanks: ["Thank you to all municipalities that took the time", "105 analysed responses from eight regions of Romania show where stray dogs are an issue, where structures are missing and where municipalities are ready to change something.", "Submit a request", "Request cooperation"]
+    },
+    ro: {
+      pageTitle: "Evaluarea nevoilor 2026",
+      asof: "actualizat 07.09.2026",
+      h1: "De ce au nevoie cu adevărat primăriile din România",
+      lead: "Am întrebat 3.001 primării cum gestionează în prezent câinii comunitari și pe cei cu proprietar și unde ajung la limite. 105 răspunsuri au putut fi analizate. Iată rezultatele – complet și fără înfrumusețare.",
+      kpis: [["Primării contactate", "3.001", "", 3001], ["Răspunsuri primite", "132", "o rată de răspuns de 4,4 %", 132], ["Răspunsuri analizate", "105", "cu consimțământ explicit", 105]],
+      howTitle: "Cum trebuie citite aceste cifre",
+      how: ["Din 3.001 primării contactate, 132 au răspuns. Analiza se bazează pe cele 105 răspunsuri pentru care există consimțământ explicit pentru prelucrare.",
+        "O rată de răspuns de 4,4 % înseamnă că participanții formează un grup autoselectat – probabil primării cu o capacitate administrativă peste medie, cu o presiune resimțită de a acționa sau ambele.",
+        "Rezultatele trebuie citite ca o imagine a primăriilor care au răspuns, nu ca un eșantion reprezentativ pentru toate primăriile din România.",
+        "Primăriile sunt prezentate exclusiv la nivel de județ, niciodată nominal. Date la 7 septembrie 2026."],
+      who: ["Cine a răspuns", "105 primării respondente"],
+      region: ["Regiune (regiune istorică)", [["Moldova", 32], ["Muntenia", 26], ["Transilvania", 19], ["Banat", 8], ["Crișana", 6], ["Oltenia", 6], ["Maramureș", 5], ["Dobrogea", 3]]],
+      size: ["Mărimea localității (locuitori)", [["2.000–10.000", 69], ["sub 2.000", 21], ["10.001–50.000", 13], ["peste 50.000", 2]]],
+      whoNote: "Studiul ajunge mai ales la comune mici și mijlocii – exact acolo unde câinii fără stăpân întâlnesc rareori structuri proprii.",
+      situ: ["Situația la fața locului", "Autoevaluarea primăriilor"],
+      dogs: ["Câini liberi (estimare)", [["0–20", 34], ["21–50", 32], ["51–150", 21], ["151–400", 10], ["peste 400", 1], ["necunoscut", 7]]],
+      trend: ["Evoluția (ultimii 2 ani)", [["în scădere puternică", 13], ["în scădere ușoară", 26], ["stabilă", 31], ["în ușoară creștere", 20], ["în creștere puternică", 15]]],
+      unneut: ["Câini nesterilizați – inclusiv câini cu stăpân", "33 de primării nu pot estima deloc acest număr.", "În cazul câinilor comunitari vizibili, doar 7 primării nu au putut răspunde. Însă sterilizarea nu privește doar câinii fără stăpân, de aceea am întrebat separat despre toți câinii nesterilizați – și acolo se oprește cunoașterea administrației."],
+      meas: ["Ce se face în prezent", "Măsuri utilizate · răspunsuri multiple posibile", [["CNVR – prindere, sterilizare, vaccinare, returnare", 43], ["nicio metodă sistematică", 42], ["adopție / plasare", 25], ["adăpost permanent", 17], ["ucidere", 6]]],
+      measCall: ["Constatarea cea mai frapantă", "Aproape la fel de multe primării lucrează fără nicio metodă sistematică, câte folosesc CNVR."],
+      gapsT: ["Ce structuri lipsesc", "Resursele primăriilor respondente"],
+      gaps: [["79 %", 79, "fără adăpost propriu", "83 din 105"], ["55 %", 55, "fără buget anual fix", "58 din 105"], ["57 %", 57, "fără responsabil desemnat", "60 din 105"]],
+      vet: ["Asistență veterinară", [["medic veterinar / contract", 45], ["cel mai apropiat < 20 km", 32], ["fără asistență organizată", 21], ["cel mai apropiat > 20 km", 7]]],
+      budget: ["Buget anual", [["fără buget fix", 58], ["25.000–100.000 RON", 25], ["sub 25.000 RON", 14], ["100.001–250.000 RON", 6], ["peste 250.000 RON", 2]]],
+      prob: ["Unde strânge cel mai tare pantoful", "Șapte domenii, evaluate pe o scară de la 1 la 5"],
+      probIntro: "Primăriile au evaluat șapte domenii: 1 = nicio problemă, 5 = problemă mare. Este indicată media tuturor celor 105 răspunsuri. Două domenii necesită o explicație, deoarece denumirea lor poate fi înțeleasă greșit:",
+      probDefs: [["Cerințe legale / administrative", "Efortul birocratic la implementare – proceduri de autorizare, reguli de achiziții publice, obligații de raportare către consiliul județean și prefectură. Nu sunt vizate chestiunile juridice ale protecției animalelor în sine."],
+        ["Acceptare / plângeri ale cetățenilor", "Măsura în care implementarea este îngreunată de lipsa de acceptare în rândul populației – plângeri privind câinii fără stăpân, dar și rezistență față de anumite măsuri."]],
+      probItems: [["Cerințe legale / administrative", 2.83, "Ø 2,83"], ["Acceptare / plângeri", 2.71, "Ø 2,71"], ["Capacitate veterinară", 2.70, "Ø 2,70"], ["Finanțare / buget", 2.45, "Ø 2,45"], ["Adopție / plasare", 2.27, "Ø 2,27"], ["Personal / know-how", 1.85, "Ø 1,85"], ["Infrastructură", 1.74, "Ø 1,74"]],
+      probCall: ["De remarcat", "Nu banii și nu personalul sunt pe primul loc, ci birocrația și acceptarea la nivel local.", "Toate cele șapte valori sunt sub 3 – în medie, presiunea este resimțită ca moderată. Contează deci mai puțin nivelul absolut, cât ordinea domeniilor."],
+      coop: ["Colaborarea de până acum", "Experiența cu organizații de protecția animalelor"],
+      coopStatus: ["Statusul colaborării", [["niciodată", 63], ["în desfășurare", 23], ["în trecut, acum nu", 19]]],
+      coopWhy: ["Motivul, dacă „niciodată” (n = 63)", [["nicio organizație cunoscută", 19], ["nu este nevoie", 18], ["rețineri", 16], ["altele", 8]]],
+      coopCall: ["Cel mai frecvent motiv pentru „niciodată”", "Nu lipsa nevoii, nu respingerea – ci: nicio organizație cunoscută."],
+      wish: ["Ce sprijin este dorit", "Răspunsuri multiple posibile · 105 primării"],
+      wishType: ["Tipul de sprijin dorit", [["Programe de sterilizare", 93], ["Înregistrare / microcipare", 54], ["Sprijinirea adopțiilor", 44], ["Educație și informare", 44], ["Deparazitare / vaccinare", 42], ["Adăposturi", 41]]],
+      wishNeed: ["Necesar estimat (pe an)", [["25.000–100.000 RON", 47], ["100.001–250.000 RON", 16], ["nu poate fi estimat", 16], ["sub 25.000 RON", 13], ["250.001–500.000 RON", 7], ["peste 500.000 RON", 6]]],
+      wishNote: "Întrebarea a vizat necesarul anual de sprijin – independent de bugetul propriu actual al primăriei.",
+      wishCall: ["Cel mai clar rezultat al întregului studiu", "93 din 105 primării își doresc sprijin pentru programe de sterilizare."],
+      prioT: ["Unde presiunea de a acționa este cea mai mare", "Candidați pentru prioritizare"],
+      prioIntro: "La finalul chestionarului au fost două întrebări: „Cât de urgentă este nevoia de a acționa?” și „Cât de deschiși sunteți față de o colaborare cu CAMRO?” – ambele pe o scară de la 1 la 5. Este considerată candidat pentru prioritizare o primărie care a răspuns la ambele întrebări cu 4 sau 5.",
+      prioFigs: [["53", "candidați pentru prioritizare", "din 105 primării – jumătate"], ["29", "județe cu cel puțin un candidat", "fără menționarea localităților individuale"]],
+      prioChart: "Județele cu cei mai mulți candidați",
+      prioNote: "Din motive de protecție a datelor sunt menționate exclusiv județe. Alte 14 județe au câte un candidat.",
+      good: ["Ce funcționează deja bine", "Colaborări evaluate de primării cu 5 din 5", ["Organizație", "Județ", "Ce a funcționat bine"]],
+      goodRows: ["Mai multe campanii de sterilizare reușite, cu efect vizibil în comunitate", "Sterilizare și microcipare periodică – atât pentru câinii fără stăpân, cât și pentru cei cu stăpân", "Limitarea înmulțirii necontrolate a câinilor fără stăpân", "Sprijin constant și prompt prin finanțare și donații materiale, comunicare foarte bună", "Peste 160 de animale sterilizate în două campanii anul trecut, a treia este deja organizată", "Model triunghiular: cabinetul veterinar se ocupă de capturare, adăpostul de cazare și plasare"],
+      orgs: ["Unde se află organizațiile de profil", "Comparație externă · nu face parte din studiu"],
+      orgsNote: "Eșantion dintr-un singur director online (protectiaanimalelor.org, septembrie 2026). Fără pretenția de exhaustivitate – cifrele arată o tendință, nu o statistică oficială.",
+      next: ["Primăriile și organizațiile nu se găsesc unele pe altele", "Ce reținem din acest studiu"],
+      nextPs: ["Cel mai frecvent motiv pentru care o primărie nu a colaborat niciodată cu o organizație de protecția animalelor nu este nici lipsa nevoii, nici respingerea – este lipsa informației. În același timp, în România lucrează numeroase organizații și echipe mobile de sterilizare care ar putea închide exact această lacună.",
+        "De aceea, următorul nostru pas este să construim o prezentare generală organizată pe regiuni: organizații și echipe de sterilizare active în România – pentru ca fiecare primărie să vadă cine lucrează în apropiere.",
+        "Sunteți o organizație sau o echipă de sterilizare și doriți să fiți incluși în această prezentare? Contactați-ne."],
+      thanks: ["Mulțumim tuturor primăriilor care și-au făcut timp", "105 răspunsuri analizate din opt regiuni ale României arată unde câinii fără stăpân sunt o problemă, unde lipsesc structurile și unde primăriile sunt dispuse să schimbe ceva.", "Trimite o cerere", "Solicită cooperare"]
+    }
+  };
+
+  /* gleiche Zahlen in allen Sprachen */
+  var PRIO = [["Galați", 4], ["Iași", 4], ["Vaslui", 4], ["Prahova", 3], ["Brăila", 3], ["Sibiu", 3], ["Buzău", 2], ["Olt", 2], ["Teleorman", 2], ["Timiș", 2], ["Mureș", 2], ["Vâlcea", 2], ["Caraș-Severin", 2], ["Ialomița", 2], ["Vrancea", 2]];
+  var GOOD = [["Arca lui Norocel", "Prahova"], ["Tierhilfe Hoffnung – Adăpostul Smeura", "Argeș"], ["Asociația Sprijină Câinii Vaslui", "Vaslui"], ["Asociația YOYO Saschiz", "Mureș"], ["C1 Tierschutz", "Timiș"], ["Happy Tails Brașov", "Brașov"]];
+  var ORGS = [["București + Ilfov", 46], ["Iași (Moldova)", 8], ["Galați (Moldova)", 7], ["Bacău (Moldova)", 6], ["Neamț (Moldova)", 6], ["Suceava (Moldova)", 6], ["Sibiu (Transilvania)", 4], ["Vaslui (Moldova)", 2], ["Botoșani (Moldova)", 2], ["Vrancea (Moldova)", 2], ["Bihor (Crișana)", 2]];
+
+  var e = CAMRO.esc;
+  function bars(items, max, opts) {
+    opts = opts || {};
+    return '<ul class="bars' + (opts.scale ? " scale" : "") + '">' + items.map(function (it, i) {
+      var w = Math.max(0, Math.min(100, it[1] / max * 100));
+      var shown = it[2] != null ? it[2] : CAMRO.fmt(it[1]);
+      return '<li><span class="lab">' + e(it[0]) + '</span><span class="track" aria-hidden="true"><span class="fill' + (opts.hi === i ? " hi" : "") + '" style="width:' + w.toFixed(1) + '%"></span></span><span class="val">' + e(shown) + '</span></li>';
+    }).join("") + '</ul>';
+  }
+  function chart(title, items, max, opts) { return '<div class="chart"><h3>' + e(title) + '</h3>' + bars(items, max, opts) + '</div>'; }
+  function head(t) { return '<h2 class="sec-title">' + e(t[0]) + '</h2><p class="sec-sub">' + e(t[1]) + '</p>'; }
+  function call(label, p1, p2) { return '<div class="call"><b>' + e(label) + '</b><p>' + e(p1) + '</p>' + (p2 ? '<p>' + e(p2) + '</p>' : "") + '</div>'; }
+
+  function build(lang, t) {
+    var d = D[lang], h = "";
+    h += '<section class="wrap page-head"><p class="small" style="margin-bottom:14px">' + e(d.asof) + '</p><h1>' + e(d.h1) + '</h1><p class="lead">' + e(d.lead) + '</p>' +
+      '<ul class="kpis">' + d.kpis.map(function (k) {
+        return '<li><span class="l">' + e(k[0]) + '</span><b>' + e(k[1]) + '</b>' + (k[2] ? '<span class="n">' + e(k[2]) + '</span>' : '<span class="n">&nbsp;</span>') +
+          '<div class="m" aria-hidden="true"><i style="width:' + (k[3] / 3001 * 100).toFixed(1) + '%"></i></div></li>';
+      }).join("") + '</ul>' +
+      '<div class="howto"><h2>' + e(d.howTitle) + '</h2><ul class="plain">' + d.how.map(function (x) { return '<li>' + e(x) + '</li>'; }).join("") + '</ul></div></section>';
+
+    h += '<section class="wrap sec">' + head(d.who) + '<div class="charts">' + chart(d.region[0], d.region[1], 105) + chart(d.size[0], d.size[1], 105) + '</div><p class="para">' + e(d.whoNote) + '</p></section>';
+
+    h += '<section class="band-white"><div class="wrap sec">' + head(d.situ) + '<div class="charts">' + chart(d.dogs[0], d.dogs[1], 105) + chart(d.trend[0], d.trend[1], 105) + '</div>' +
+      '<div class="box" style="margin-top:32px;max-width:52em"><b>' + e(d.unneut[0]) + '</b><p>' + e(d.unneut[1]) + '</p><p>' + e(d.unneut[2]) + '</p></div></div></section>';
+
+    h += '<section class="wrap sec"><h2 class="sec-title">' + e(d.meas[0]) + '</h2><div class="charts">' + chart(d.meas[1], d.meas[2], 105) + '</div>' + call(d.measCall[0], d.measCall[1]) + '</section>';
+
+    h += '<section class="band-white"><div class="wrap sec">' + head(d.gapsT) + '<ul class="gaps">' + d.gaps.map(function (g) {
+        return '<li><b>' + e(g[0]) + '</b><div class="m" aria-hidden="true"><i style="width:' + g[1] + '%"></i></div><span>' + e(g[2]) + '</span><small>' + e(g[3]) + '</small></li>';
+      }).join("") + '</ul><div class="charts">' + chart(d.vet[0], d.vet[1], 105) + chart(d.budget[0], d.budget[1], 105) + '</div></div></section>';
+
+    h += '<section class="wrap sec">' + head(d.prob) + '<p class="para" style="margin-top:0">' + e(d.probIntro) + '</p><div class="defs">' +
+      d.probDefs.map(function (x) { return '<div><h3>' + e(x[0]) + '</h3><p>' + e(x[1]) + '</p></div>'; }).join("") + '</div>' +
+      '<div class="charts"><div class="chart">' + bars(d.probItems, 5, { scale: true }) + '</div></div>' + call(d.probCall[0], d.probCall[1], d.probCall[2]) + '</section>';
+
+    h += '<section class="band-white"><div class="wrap sec">' + head(d.coop) + '<div class="charts">' + chart(d.coopStatus[0], d.coopStatus[1], 105) + chart(d.coopWhy[0], d.coopWhy[1], 63) + '</div>' + call(d.coopCall[0], d.coopCall[1]) + '</div></section>';
+
+    h += '<section class="wrap sec">' + head(d.wish) + '<div class="charts">' + chart(d.wishType[0], d.wishType[1], 105, { hi: 0 }) + chart(d.wishNeed[0], d.wishNeed[1], 105) + '</div><p class="para">' + e(d.wishNote) + '</p>' + call(d.wishCall[0], d.wishCall[1]) + '</section>';
+
+    h += '<section class="band-ink"><div class="wrap sec">' + head(d.prioT) + '<p class="para" style="margin:0 0 36px;color:var(--on-ink)">' + e(d.prioIntro) + '</p><div class="prio"><div class="figs">' +
+      d.prioFigs.map(function (f) { return '<div><b>' + e(f[0]) + '</b><span>' + e(f[1]) + '</span><small>' + e(f[2]) + '</small></div>'; }).join("") + '</div>' +
+      chart(d.prioChart, PRIO, 4) + '</div><p class="para" style="color:var(--on-ink)">' + e(d.prioNote) + '</p></div></section>';
+
+    h += '<section class="wrap sec">' + head(d.good) + '<div class="tbox"><table><thead><tr>' + d.good[2].map(function (c) { return '<th scope="col">' + e(c) + '</th>'; }).join("") + '</tr></thead><tbody>' +
+      GOOD.map(function (g, i) { return '<tr><td><b>' + e(g[0]) + '</b></td><td>' + e(g[1]) + '</td><td>' + e(d.goodRows[i]) + '</td></tr>'; }).join("") + '</tbody></table></div></section>';
+
+    h += '<section class="band-white"><div class="wrap sec">' + head(d.orgs) + '<div class="charts"><div class="chart">' + bars(ORGS, 46) + '</div></div><p class="para">' + e(d.orgsNote) + '</p></div></section>';
+
+    h += '<section class="wrap sec">' + head(d.next) + '<div style="max-width:46em">' + d.nextPs.map(function (p, i) { return '<p style="margin-top:' + (i ? 16 : 0) + 'px;font-size:18px">' + e(p) + '</p>'; }).join("") +
+      '<p style="margin-top:16px"><a class="textlink" href="mailto:hallo@camro.ro">hallo@camro.ro</a></p></div></section>';
+
+    h += '<section class="wrap" style="padding-bottom:96px"><div class="band-pine" style="border-radius:10px;padding:clamp(28px,4vw,48px)"><h2 style="font-size:30px;font-weight:800;letter-spacing:-.015em;margin-bottom:12px">' + e(d.thanks[0]) + '</h2><p style="max-width:40em">' + e(d.thanks[1]) + '</p>' +
+      '<div class="ctas"><a class="btn btn-white" href="https://app.camro.ro/anfrage-stellen/?lang=' + lang + '">' + e(d.thanks[2]) + '</a><a class="btn btn-line" style="border-color:#fff;color:#fff" href="' + CAMRO.link("unterstuetzer.html") + '">' + e(d.thanks[3]) + '</a></div></div></section>';
+
+    document.getElementById("main").innerHTML = h;
+  }
+
+  var dict = {}; ["de", "en", "ro"].forEach(function (l) { dict[l] = { pageTitle: D[l].pageTitle }; });
+  CAMRO.page(dict, build);
+})();
+</script>
+</body>
+</html>

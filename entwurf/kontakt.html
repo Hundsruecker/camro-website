@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kontakt – CAMRO</title>
+<link rel="icon" href="logo/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="logo/apple-touch-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/camro.css">
+<style>
+.mailbig{display:inline-block;margin-top:28px;font-size:clamp(32px,5vw,60px);font-weight:800;letter-spacing:-.02em;text-underline-offset:10px;text-decoration-thickness:4px;text-decoration-color:var(--raps);word-break:break-word}
+.carrier{display:flex;flex-wrap:wrap;gap:32px 72px;align-items:flex-start}
+.carrier h2{flex:1 1 300px;font-size:clamp(24px,2.6vw,32px);font-weight:800;line-height:1.15;letter-spacing:-.015em}
+.carrier address{flex:1 1 300px;font-style:normal;font-size:18px;line-height:1.7}
+</style>
+</head>
+<body data-page="kontakt.html">
+<div id="site-header"></div>
+
+<main id="main">
+  <section class="wrap page-head">
+    <h1 data-i18n="h1"></h1>
+    <p class="lead" data-i18n="lead"></p>
+    <a class="mailbig" href="mailto:hallo@camro.ro">hallo@camro.ro</a>
+  </section>
+
+  <section class="band-white">
+    <div class="wrap sec carrier" style="padding-bottom:96px">
+      <h2 data-i18n="carrier"></h2>
+      <address>
+        Europaallee 33<br>67657 Kaiserslautern<br>
+        <a href="tel:+4917681081042">+49 176 810 810 42</a>
+      </address>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="assets/camro.js"></script>
+<script>
+/* Texte: wörtlich von camro.ro (Stand 27.11.2026). */
+CAMRO.page({
+  de: { pageTitle: "Kontakt", h1: "Kontakt", lead: "Fragen zu CAMRO? Wir melden uns zurück.", carrier: "CAMRO ist ein Projekt der Hundsrücker Tierschutz gUG" },
+  en: { pageTitle: "Contact", h1: "Contact", lead: "Questions about CAMRO? We will get back to you.", carrier: "CAMRO is a project of Hundsrücker Tierschutz gUG" },
+  ro: { pageTitle: "Contact", h1: "Contact", lead: "Întrebări despre CAMRO? Vă vom contacta.", carrier: "CAMRO este un proiect al Hundsrücker Tierschutz gUG" }
+});
+</script>
+</body>
+</html>

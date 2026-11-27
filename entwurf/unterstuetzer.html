@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Für Unterstützer – CAMRO</title>
+<link rel="icon" href="logo/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="logo/apple-touch-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/camro.css">
+<style>
+.ways{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0 48px}
+.ways li{padding:20px 0;border-top:1px solid var(--line);font-size:19px;font-weight:600}
+.money{display:flex;flex-wrap:wrap;gap:24px 64px;align-items:center}
+.money h2{flex:2 1 420px;font-size:clamp(28px,3.4vw,44px);font-weight:800;line-height:1.08;letter-spacing:-.02em}
+.money p{flex:1 1 300px;font-size:18px;line-height:1.6}
+.final{display:flex;flex-wrap:wrap;gap:24px 48px;align-items:center;justify-content:space-between;background:var(--raps);border-radius:10px;padding:clamp(28px,4vw,48px)}
+.final h2{font-size:30px;font-weight:800;letter-spacing:-.015em;margin-bottom:8px}
+.final p{max-width:34em}
+</style>
+</head>
+<body data-page="unterstuetzer.html">
+<div id="site-header"></div>
+
+<main id="main">
+  <section class="wrap page-head">
+    <h1 data-i18n="h1"></h1>
+    <p class="lead" data-i18n="lead"></p>
+    <div class="ctas">
+      <a class="btn btn-dark js-app" href="https://app.camro.ro/angebot/?lang=de" data-i18n="cta"></a>
+    </div>
+  </section>
+
+  <section class="wrap sec">
+    <h2 class="sec-title" style="margin-bottom:28px" data-i18n="waysTitle"></h2>
+    <ul class="ways" id="ways"></ul>
+  </section>
+
+  <section class="band-white">
+    <div class="wrap sec">
+      <h2 class="sec-title" data-i18n="roleTitle"></h2>
+      <div class="split">
+        <div><h3 class="list-head" style="color:var(--pine)" data-i18n="canHead"></h3><ul class="ticks" id="can"></ul></div>
+        <div><h3 class="list-head" data-i18n="notHead"></h3><ul class="dashes" id="not"></ul></div>
+      </div>
+      <p class="small" style="margin-top:20px;max-width:44em" data-i18n="roleNote"></p>
+    </div>
+  </section>
+
+  <section class="band-ink">
+    <div class="wrap sec money">
+      <h2 data-i18n="moneyTitle"></h2>
+      <p data-i18n="moneyText"></p>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top:72px;padding-bottom:96px">
+    <div class="final">
+      <div>
+        <h2 data-i18n="finalTitle"></h2>
+        <p data-i18n="finalText"></p>
+      </div>
+      <a class="btn btn-dark js-app" href="https://app.camro.ro/angebot/?lang=de" data-i18n="cta"></a>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="assets/camro.js"></script>
+<script>
+/* Texte: wörtlich von camro.ro (Stand 27.11.2026). Abweichungen stehen in der Gegenüberstellung. */
+CAMRO.page({
+  de: {
+    pageTitle: "Für Unterstützer",
+    h1: "Strukturierte Unterstützung statt unkoordinierter Förderung.",
+    lead: "CAMRO ermöglicht Unternehmen, Privatpersonen und Organisationen eine strukturierte Zusammenarbeit mit rumänischen Gemeinden. Ziel ist es, Unterstützung gezielt und wirksam einzusetzen.",
+    cta: "Kooperation anfragen",
+    waysTitle: "So können Sie CAMRO unterstützen.",
+    ways: ["Projektpartner werden", "Unternehmenspartner werden", "Fachwissen einbringen", "Projekte finanzieren", "Sachleistungen bereitstellen", "Netzwerk erweitern"],
+    roleTitle: "Was Unterstützer:innen tun – und was nicht.",
+    canHead: "Unterstützer:innen können", notHead: "Unterstützer:innen übernehmen nicht",
+    canList: ["fachliche, organisatorische oder finanzielle Unterstützung leisten", "Projekte begleiten oder fördern", "kommunale Maßnahmen ergänzen"],
+    notList: ["kommunale Aufgaben", "Verwaltungsentscheidungen", "Maßnahmen außerhalb der vereinbarten Kooperation"],
+    roleNote: "CAMRO fungiert als strukturierende Plattform – nicht als Durchführungsorganisation.",
+    moneyTitle: "CAMRO verwaltet keine Gelder.",
+    moneyText: "Mittel fließen direkt zwischen den Beteiligten, also zwischen Unterstützern, Gemeinden und Leistungserbringern, nie über CAMRO.",
+    finalTitle: "Kooperation anfragen",
+    finalText: "Sie möchten gezielt und nachvollziehbar mit rumänischen Gemeinden zusammenarbeiten oder ein Projekt fördern? Wir stellen den Kontakt zu geprüften kommunalen Bedarfen her."
+  },
+  en: {
+    pageTitle: "For supporters",
+    h1: "Structured support instead of uncoordinated funding.",
+    lead: "CAMRO enables companies, individuals and organisations to cooperate in a structured way with Romanian municipalities. The aim is to deploy support in a targeted and effective manner.",
+    cta: "Request cooperation",
+    waysTitle: "How you can support CAMRO.",
+    ways: ["Become a project partner", "Become a corporate partner", "Contribute expertise", "Fund projects", "Provide in-kind support", "Expand the network"],
+    roleTitle: "What supporters do – and what they do not.",
+    canHead: "Supporters can", notHead: "Supporters do not take on",
+    canList: ["provide professional, organisational or financial support", "accompany or fund projects", "complement municipal measures"],
+    notList: ["municipal duties", "administrative decisions", "measures outside the agreed cooperation"],
+    roleNote: "CAMRO acts as a structuring platform – not as an implementing organisation.",
+    moneyTitle: "CAMRO does not manage funds.",
+    moneyText: "Money flows directly between those involved, that is between supporters, municipalities and service providers, never through CAMRO.",
+    finalTitle: "Request cooperation",
+    finalText: "You want to work with Romanian municipalities in a targeted and transparent way, or fund a project? We connect you with verified municipal needs."
+  },
+  ro: {
+    pageTitle: "Pentru susținători",
+    h1: "Sprijin structurat în locul finanțării necoordonate.",
+    lead: "CAMRO permite companiilor, persoanelor fizice și organizațiilor să coopereze în mod structurat cu primăriile românești. Scopul este utilizarea sprijinului în mod țintit și eficient.",
+    cta: "Solicită cooperare",
+    waysTitle: "Cum puteți sprijini CAMRO.",
+    ways: ["Deveniți partener de proiect", "Deveniți partener corporativ", "Oferiți expertiză", "Finanțați proiecte", "Oferiți sprijin material", "Extindeți rețeaua"],
+    roleTitle: "Ce fac susținătorii – și ce nu.",
+    canHead: "Susținătorii pot", notHead: "Susținătorii nu preiau",
+    canList: ["oferi sprijin profesional, organizatoric sau financiar", "însoți sau finanța proiecte", "completa măsurile municipale"],
+    notList: ["sarcini municipale", "decizii administrative", "măsuri în afara cooperării convenite"],
+    roleNote: "CAMRO funcționează ca platformă structurantă – nu ca organizație de implementare.",
+    moneyTitle: "CAMRO nu administrează bani.",
+    moneyText: "Fondurile circulă direct între cei implicați, adică între susținători, primării și furnizorii de servicii, niciodată prin CAMRO.",
+    finalTitle: "Solicită cooperare",
+    finalText: "Doriți să colaborați cu primăriile românești în mod țintit și transparent sau să finanțați un proiect? Vă punem în legătură cu nevoile municipale verificate."
+  }
+}, function (lang, t) {
+  var e = CAMRO.esc, li = function (a) { return a.map(function (x) { return '<li>' + e(x) + '</li>'; }).join(""); };
+  document.getElementById("ways").innerHTML = li(t("ways"));
+  document.getElementById("can").innerHTML = li(t("canList"));
+  document.getElementById("not").innerHTML = li(t("notList"));
+  document.querySelectorAll(".js-app").forEach(function (a) { a.href = "https://app.camro.ro/angebot/?lang=" + lang; });
+});
+</script>
+</body>
+</html>

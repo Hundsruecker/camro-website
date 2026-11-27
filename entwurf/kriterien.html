@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kriterien &amp; Transparenz – CAMRO</title>
+<link rel="icon" href="logo/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="logo/apple-touch-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/camro.css">
+<style>
+.trial{display:flex;flex-wrap:wrap;gap:32px 72px;align-items:flex-start}
+.trial h2{flex:1 1 300px;font-size:clamp(28px,3.4vw,44px);font-weight:800;line-height:1.08;letter-spacing:-.02em;color:var(--white)}
+.trial .body{flex:1.4 1 420px;min-width:0}
+.trial .body > p:first-child{font-size:18px;color:var(--white);margin-bottom:14px}
+.trial ul{list-style:none;margin:0;padding:0}
+.trial li{padding:14px 0;border-top:1px solid var(--ink-line);font-size:17px;color:var(--on-ink)}
+.trial .after{margin-top:20px;font-size:17px;color:var(--white);font-weight:600}
+.principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:32px}
+.principles div{padding-top:18px;border-top:3px solid var(--ink)}
+.principles h3{font-size:20px;font-weight:700;margin-bottom:8px}
+.principles p{color:var(--text2)}
+</style>
+</head>
+<body data-page="kriterien.html">
+<div id="site-header"></div>
+
+<main id="main">
+  <section class="wrap page-head">
+    <h1 data-i18n="h1"></h1>
+    <p class="lead" data-i18n="lead"></p>
+    <ul class="jump">
+      <li><a href="#verfahren" data-i18n="j1"></a></li>
+      <li><a href="#probephase" data-i18n="j2"></a></li>
+      <li><a href="#kriterien" data-i18n="j3"></a></li>
+      <li><a href="#bewertung" data-i18n="j4"></a></li>
+      <li><a href="#grundprinzipien" data-i18n="j5"></a></li>
+    </ul>
+  </section>
+
+  <section class="wrap sec" id="verfahren">
+    <h2 class="sec-title" style="margin-bottom:36px" data-i18n="procTitle"></h2>
+    <ol class="vsteps" id="proc"></ol>
+  </section>
+
+  <section class="band-ink" id="probephase">
+    <div class="wrap sec trial">
+      <h2 data-i18n="trialTitle"></h2>
+      <div class="body">
+        <p data-i18n="trialLead"></p>
+        <ul id="trial"></ul>
+        <p class="after" data-i18n="trialAfter"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap sec" id="kriterien">
+    <h2 class="sec-title" style="margin-bottom:32px" data-i18n="critTitle"></h2>
+    <div class="split">
+      <div><h3 class="list-head" style="color:var(--pine)" data-i18n="minTitle"></h3><ul class="ticks" id="min"></ul></div>
+      <div><h3 class="list-head" data-i18n="exTitle"></h3><ul class="dashes" id="ex"></ul></div>
+    </div>
+  </section>
+
+  <section class="band-white" id="bewertung">
+    <div class="wrap sec">
+      <h2 class="sec-title" style="margin-bottom:32px" data-i18n="evalTitle"></h2>
+      <div class="split">
+        <div><h3 class="list-head" style="color:var(--pine)" data-i18n="evalHead"></h3><ul class="ticks" id="eval"></ul></div>
+        <div><h3 class="list-head" data-i18n="endHead"></h3><ul class="dashes" id="end"></ul></div>
+      </div>
+      <p class="small" style="margin-top:20px;max-width:44em" data-i18n="endNote"></p>
+    </div>
+  </section>
+
+  <section class="wrap sec" id="grundprinzipien" style="padding-bottom:96px">
+    <h2 class="sec-title" style="margin-bottom:32px" data-i18n="prinTitle"></h2>
+    <div class="principles" id="prin"></div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="assets/camro.js"></script>
+<script>
+/* Texte: wörtlich von camro.ro (Stand 27.11.2026). Abweichungen stehen in der Gegenüberstellung. */
+CAMRO.page({
+  de: {
+    pageTitle: "Kriterien & Transparenz",
+    h1: "Die Regeln, nach denen CAMRO Gemeinden aufnimmt und begleitet.",
+    lead: "CAMRO verbindet kommunalen Bedarf mit externer Unterstützung. Damit diese Verbindung vertrauenswürdig bleibt, durchläuft jede Gemeinde ein geprüftes Aufnahmeverfahren – unabhängig von Größe, Region oder Art des Bedarfs.",
+    j1: "Verfahren", j2: "Probephase", j3: "Aufnahmekriterien", j4: "Bewertung & Beendigung", j5: "Grundprinzipien",
+    procTitle: "Wie eine Gemeinde aufgenommen wird.",
+    proc: [
+      ["Antragstellung", "Die Gemeinde stellt ihren Bedarf über das Online-Formular dar."],
+      ["Vorprüfung", "Das CAMRO-Team sichtet die Angaben auf Vollständigkeit und Plausibilität."],
+      ["Prüfung vor Ort", "Ein unabhängiger Projektpartner prüft die Angaben direkt in der Gemeinde."],
+      ["Einsicht in Unterlagen", "Relevante Dokumente werden eingesehen, etwa Budgets oder bestehende Maßnahmenpläne."],
+      ["Entscheidung", "Auf Basis der Prüfung wird über die Aufnahme in die Probephase entschieden."]
+    ],
+    trialTitle: "12 Monate Praxis, bevor es dauerhaft wird.",
+    trialLead: "Jede neu aufgenommene Gemeinde durchläuft zunächst eine Probephase, in der Regel 12 Monate lang.",
+    trialList: ["Die Gemeinde dokumentiert ihre Maßnahmen regelmäßig.", "Die Verwendung der Unterstützung wird transparent dargestellt.", "Die Zusammenarbeit wird gemeinsam bewertet."],
+    trialAfter: "Nach erfolgreichem Abschluss der Probephase erfolgt die dauerhafte Aufnahme in die Plattform.",
+    critTitle: "Mindestvoraussetzungen & Ausschlusskriterien.",
+    minTitle: "Mindestvoraussetzungen",
+    minList: ["Offizielle Vertretung durch Bürgermeister:in oder Verwaltung", "Bestehende Eigenmaßnahmen im Tierschutz", "Bereitschaft zur Offenlegung relevanter Informationen", "Anerkennung der CAMRO-Grundsätze", "Kein Einsatz von Tötung als Instrument der Populationskontrolle während der Teilnahme"],
+    exTitle: "Ausschlusskriterien",
+    exList: ["Vollständige Abgabe kommunaler Verantwortung an Dritte", "Fehlende oder verweigerte Transparenz", "Unrealistische oder unbegründete Finanzforderungen", "Nutzung der Plattform ausschließlich zur Geldakquise"],
+    evalTitle: "Wie die Zusammenarbeit beurteilt wird.",
+    evalHead: "Bewertungskriterien während der Probephase",
+    evalList: ["Qualität der umgesetzten Maßnahmen", "Zweckgebundene Verwendung der Unterstützung", "Kooperationsbereitschaft", "Einhaltung der gemeinsam vereinbarten Ziele"],
+    endHead: "Wann eine Zusammenarbeit endet",
+    endList: ["Zweckentfremdung von Mitteln", "Falsche Angaben im Antrags- oder Prüfprozess", "Fehlende Umsetzung trotz erhaltener Unterstützung", "Verweigerung der weiteren Zusammenarbeit"],
+    endNote: "Die Teilnahme an CAMRO ist freiwillig und kann von der Gemeinde jederzeit beendet werden.",
+    prinTitle: "Worauf CAMRO aufgebaut ist.",
+    prin: [
+      ["Ergänzend, nicht ersetzend", "CAMRO ersetzt keine kommunale Finanzierungspflicht."],
+      ["Transparenz", "Jede Aufnahme beruht auf geprüften Angaben."],
+      ["Freiwilligkeit", "Keine Gemeinde ist zur Teilnahme verpflichtet."],
+      ["Jederzeitige Beendbarkeit", "Die Teilnahme kann von beiden Seiten beendet werden."]
+    ]
+  },
+  en: {
+    pageTitle: "Criteria & Transparency",
+    h1: "The rules by which CAMRO admits and supports municipalities.",
+    lead: "CAMRO connects municipal needs with external support. To ensure this connection remains trustworthy, every municipality goes through a verified admission process – regardless of size, region or type of need.",
+    j1: "Process", j2: "Probationary period", j3: "Admission criteria", j4: "Assessment & Termination", j5: "Core principles",
+    procTitle: "How a municipality is admitted.",
+    proc: [
+      ["Application", "The municipality submits its needs via the online form."],
+      ["Pre-screening", "The CAMRO team reviews the information for completeness and plausibility."],
+      ["On-site inspection", "An independent project partner verifies the information directly at the municipality."],
+      ["Review of documents", "Relevant documents are reviewed, such as budgets or existing action plans."],
+      ["Decision", "Based on the review, a decision is made on admission to the probationary period."]
+    ],
+    trialTitle: "12 months of practice before it becomes permanent.",
+    trialLead: "Every newly admitted municipality first goes through a probationary period, typically 12 months.",
+    trialList: ["The municipality documents its measures regularly.", "The use of support is presented transparently.", "The cooperation is evaluated jointly."],
+    trialAfter: "After successful completion of the probationary period, the municipality is permanently admitted to the platform.",
+    critTitle: "Minimum requirements & exclusion criteria.",
+    minTitle: "Minimum requirements",
+    minList: ["Official representation by the mayor or administration", "Existing own animal welfare measures", "Willingness to disclose relevant information", "Acceptance of CAMRO principles", "No use of killing as a population control measure during participation"],
+    exTitle: "Exclusion criteria",
+    exList: ["Complete transfer of municipal responsibility to third parties", "Lack of or refused transparency", "Unrealistic or unfounded financial demands", "Using the platform solely for fundraising"],
+    evalTitle: "How the cooperation is assessed.",
+    evalHead: "Assessment criteria during the probationary period",
+    evalList: ["Quality of implemented measures", "Earmarked use of support", "Willingness to cooperate", "Compliance with jointly agreed goals"],
+    endHead: "When a cooperation ends",
+    endList: ["Misuse of funds", "False information in the application or review process", "Failure to implement despite received support", "Refusal of further cooperation"],
+    endNote: "Participation in CAMRO is voluntary and can be terminated by the municipality at any time.",
+    prinTitle: "What CAMRO is built on.",
+    prin: [
+      ["Complementary, not replacing", "CAMRO does not replace the municipality’s own funding obligation."],
+      ["Transparency", "Every admission is based on verified information."],
+      ["Voluntariness", "No municipality is obliged to participate."],
+      ["Terminable at any time", "Participation can be terminated by either party at any time."]
+    ]
+  },
+  ro: {
+    pageTitle: "Criterii & Transparență",
+    h1: "Regulile după care CAMRO admite și însoțește primăriile.",
+    lead: "CAMRO conectează nevoile municipale cu sprijinul extern. Pentru ca această legătură să rămână de încredere, fiecare primărie parcurge o procedură de admitere verificată – indiferent de mărime, regiune sau tipul nevoii.",
+    j1: "Procedură", j2: "Perioadă de probă", j3: "Criterii de admitere", j4: "Evaluare & încheiere", j5: "Principii fundamentale",
+    procTitle: "Cum este admisă o primărie.",
+    proc: [
+      ["Depunerea cererii", "Primăria își prezintă nevoile prin formularul online."],
+      ["Preverificare", "Echipa CAMRO verifică informațiile pentru completitudine și plauzibilitate."],
+      ["Verificare la fața locului", "Un partener de proiect independent verifică informațiile direct la primărie."],
+      ["Examinarea documentelor", "Documentele relevante sunt examinate, cum ar fi bugetele sau planurile de acțiune existente."],
+      ["Decizie", "Pe baza verificării se decide admiterea în perioada de probă."]
+    ],
+    trialTitle: "12 luni de practică înainte de a deveni permanent.",
+    trialLead: "Fiecare primărie nou admisă parcurge mai întâi o perioadă de probă, de regulă 12 luni.",
+    trialList: ["Primăria își documentează măsurile periodic.", "Utilizarea sprijinului este prezentată în mod transparent.", "Cooperarea este evaluată în comun."],
+    trialAfter: "După finalizarea cu succes a perioadei de probă, primăria este admisă permanent în platformă.",
+    critTitle: "Condiții minime & criterii de excludere.",
+    minTitle: "Condiții minime",
+    minList: ["Reprezentare oficială de către primar sau administrație", "Măsuri proprii existente în protecția animalelor", "Disponibilitatea de a face publice informațiile relevante", "Acceptarea principiilor CAMRO", "Neaplicarea eutanasierii ca instrument de control al populației pe durata participării"],
+    exTitle: "Criterii de excludere",
+    exList: ["Transferul complet al responsabilității municipale către terți", "Lipsa sau refuzul transparenței", "Cereri financiare nerealiste sau nejustificate", "Utilizarea platformei exclusiv pentru atragerea de fonduri"],
+    evalTitle: "Cum este evaluată cooperarea.",
+    evalHead: "Criterii de evaluare în timpul perioadei de probă",
+    evalList: ["Calitatea măsurilor implementate", "Utilizarea destinată a sprijinului", "Disponibilitate pentru cooperare", "Respectarea obiectivelor convenite în comun"],
+    endHead: "Când se încheie o cooperare",
+    endList: ["Utilizarea necorespunzătoare a fondurilor", "Informații false în procesul de cerere sau verificare", "Lipsa implementării în ciuda sprijinului primit", "Refuzul cooperării ulterioare"],
+    endNote: "Participarea la CAMRO este voluntară și poate fi încheiată de primărie oricând.",
+    prinTitle: "Pe ce este construit CAMRO.",
+    prin: [
+      ["Complementar, nu înlocuitor", "CAMRO nu înlocuiește obligația de finanțare a primăriei."],
+      ["Transparență", "Fiecare admitere se bazează pe informații verificate."],
+      ["Voluntariat", "Nicio primărie nu este obligată să participe."],
+      ["Reziliabil oricând", "Participarea poate fi încheiată de oricare dintre părți în orice moment."]
+    ]
+  }
+}, function (lang, t) {
+  var e = CAMRO.esc, li = function (a) { return a.map(function (x) { return '<li>' + e(x) + '</li>'; }).join(""); };
+  document.getElementById("proc").innerHTML = t("proc").map(function (s, i) {
+    return '<li><span class="n">' + (i + 1) + '</span><div><h3>' + e(s[0]) + '</h3><p>' + e(s[1]) + '</p></div></li>';
+  }).join("");
+  document.getElementById("trial").innerHTML = li(t("trialList"));
+  document.getElementById("min").innerHTML = li(t("minList"));
+  document.getElementById("ex").innerHTML = li(t("exList"));
+  document.getElementById("eval").innerHTML = li(t("evalList"));
+  document.getElementById("end").innerHTML = li(t("endList"));
+  document.getElementById("prin").innerHTML = t("prin").map(function (p) { return '<div><h3>' + e(p[0]) + '</h3><p>' + e(p[1]) + '</p></div>'; }).join("");
+});
+</script>
+</body>
+</html>
