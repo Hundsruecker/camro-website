@@ -58,6 +58,8 @@ NEUTRAL = (
     "#page,#content.site-content,#content .ast-container,#primary,#main,#primary article{max-width:none!important;width:100%!important;margin:0!important;padding:0!important}"
     "#primary .entry-content,#primary .entry-content[data-ast-blocks-layout]{max-width:none!important;width:100%!important;margin:0!important;padding:0!important}"
     "#primary .entry-content>#c2{max-width:none!important;width:100%!important;margin:0!important}"
+    # Astra begrenzt bei Block-Seiten auch die Kinder von #c2 (".entry-content[data-ast-blocks-layout] > :not(.wp-block-group) > *")
+    "#primary #c2>*,#primary #c2>*>section,#primary #c2>*>footer,#primary #c2>*>header{max-width:none!important;width:auto!important;margin-left:0!important;margin-right:0!important}"
     # Typografie und Links des alten CSS neutralisieren (zwei IDs schlagen dessen Selektoren)
     "#primary #c2 h1,#primary #c2 h2,#primary #c2 h3,#primary #c2 h4{font-family:inherit;color:inherit;text-transform:none;margin-top:0}"
     "#primary #c2 a{border-bottom:0;color:inherit;text-decoration-line:underline}"

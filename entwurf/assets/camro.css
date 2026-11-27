@@ -14,7 +14,7 @@ p{margin:0}
 h1,h2,h3{margin:0}
 .skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--white);padding:10px 16px;border-radius:6px;z-index:10}
 .skip:focus{left:16px}
-.wrap{max-width:1440px;margin:0 auto;padding-left:clamp(16px,4vw,64px);padding-right:clamp(16px,4vw,64px)}
+.wrap{max-width:none;margin:0;padding-left:clamp(16px,4vw,96px);padding-right:clamp(16px,4vw,96px)}
 .sec-title{font-size:clamp(28px,3.2vw,40px);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-bottom:20px}
 .lead{font-size:19px;line-height:1.55;max-width:36em}
 .small{font-size:14px;color:var(--muted)}
