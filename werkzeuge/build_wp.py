@@ -1,5 +1,5 @@
 """Erzeugt aus dem lokalen Entwurf fertige WordPress-HTML-Blöcke je Seite und Sprache."""
-import sys, os, re, json
+import sys, os, re, json, base64
 import tinycss2
 from playwright.sync_api import sync_playwright
 
@@ -122,7 +122,13 @@ with sync_playwright() as p:
             css = mini(NEUTRAL + scope(base_css + "\n" + g["styles"]))
             parts = [FONTS, "<style>" + css + "</style>", body]
             if page == "index":
-                parts.append("<script>" + mapjs + "</script>")
+                # WordPress verändert Zeichen wie & und < in Skripten (aus "&&" wird "&#038;&#038;").
+                # Darum wird das Skript Base64-kodiert eingebettet; der Lader enthält weder & noch <.
+                b64 = base64.b64encode(mapjs.encode("utf-8")).decode("ascii")
+                loader = ('(function(){var s=atob("' + b64 + '");'
+                          'new Function(new TextDecoder().decode(Uint8Array.from(s,function(c){return c.charCodeAt(0)})))()})();')
+                assert "&" not in loader and "<" not in loader
+                parts.append("<script>" + loader + "</script>")
             if page == "projekte":
                 # Kopf und Fuß getrennt ablegen; der Mittelteil ist der bestehende Projekt-Block von camro.ro
                 mainpart = '<div id="c2-main">' + fix_links(g["main"], lang)
