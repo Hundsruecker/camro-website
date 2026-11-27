@@ -12,9 +12,17 @@
 <link rel="stylesheet" href="assets/camro.css">
 <style>
 .mailbig{display:inline-block;margin-top:28px;font-size:clamp(32px,5vw,60px);font-weight:800;letter-spacing:-.02em;text-underline-offset:10px;text-decoration-thickness:4px;text-decoration-color:var(--raps);word-break:break-word}
-.carrier{display:flex;flex-wrap:wrap;gap:32px 72px;align-items:flex-start}
-.carrier h2{flex:1 1 300px;font-size:clamp(24px,2.6vw,32px);font-weight:800;line-height:1.15;letter-spacing:-.015em}
-.carrier address{flex:1 1 300px;font-style:normal;font-size:18px;line-height:1.7}
+.routes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px}
+.routes li{background:var(--white);border-radius:10px;padding:28px;display:flex;flex-direction:column;gap:10px}
+.routes h3{font-size:20px;font-weight:700}
+.routes p{color:var(--text2);font-size:16px;flex:1}
+.routes a{font-weight:600;text-underline-offset:5px;text-decoration-thickness:2px;align-self:flex-start}
+.carrier{display:flex;flex-wrap:wrap;gap:32px 72px}
+.carrier > div{flex:1 1 300px;min-width:0}
+.carrier dl{margin:0}
+.carrier dl div{display:grid;grid-template-columns:120px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.carrier dt{font-weight:600;color:var(--muted);font-size:15px}
+.carrier dd{margin:0}
 </style>
 </head>
 <body data-page="kontakt.html">
@@ -27,13 +35,30 @@
     <a class="mailbig" href="mailto:hallo@camro.ro">hallo@camro.ro</a>
   </section>
 
+  <section class="wrap sec">
+    <h2 class="sec-title" style="margin-bottom:28px" data-i18n="routesTitle"></h2>
+    <ul class="routes">
+      <li><h3 data-i18n="r1t"></h3><p data-i18n="r1p"></p><a href="gemeinden.html" data-i18n="r1a"></a></li>
+      <li><h3 data-i18n="r2t"></h3><p data-i18n="r2p"></p><a href="unterstuetzer.html" data-i18n="r2a"></a></li>
+      <li><h3 data-i18n="r3t"></h3><p data-i18n="r3p"></p><a href="mailto:hallo@camro.ro" data-i18n="r3a"></a></li>
+    </ul>
+  </section>
+
   <section class="band-white">
     <div class="wrap sec carrier" style="padding-bottom:96px">
-      <h2 data-i18n="carrier"></h2>
-      <address>
-        Europaallee 33<br>67657 Kaiserslautern<br>
-        <a href="tel:+4917681081042">+49 176 810 810 42</a>
-      </address>
+      <div>
+        <h2 class="sec-title" data-i18n="carTitle"></h2>
+        <p data-i18n="carText"></p>
+      </div>
+      <div>
+        <dl>
+          <div><dt data-i18n="dOrg"></dt><dd>Hundsrücker Tierschutz gUG</dd></div>
+          <div><dt data-i18n="dAddr"></dt><dd>Europaallee 33<br>67657 Kaiserslautern<br><span data-i18n="dCountry"></span></dd></div>
+          <div><dt data-i18n="dPhone"></dt><dd><a href="tel:+4917681081042">+49 176 810 810 42</a></dd></div>
+          <div><dt data-i18n="dMail"></dt><dd><a href="mailto:kontakt@hundsruecker.de">kontakt@hundsruecker.de</a></dd></div>
+          <div><dt>Facebook</dt><dd><a href="https://www.facebook.com/profile.php?id=61585799586972" data-i18n="dFb"></a></dd></div>
+        </dl>
+      </div>
     </div>
   </section>
 </main>
@@ -41,11 +66,43 @@
 <div id="site-footer"></div>
 <script src="assets/camro.js"></script>
 <script>
-/* Texte: wörtlich von camro.ro (Stand 27.11.2026). */
 CAMRO.page({
-  de: { pageTitle: "Kontakt", h1: "Kontakt", lead: "Fragen zu CAMRO? Wir melden uns zurück.", carrier: "CAMRO ist ein Projekt der Hundsrücker Tierschutz gUG" },
-  en: { pageTitle: "Contact", h1: "Contact", lead: "Questions about CAMRO? We will get back to you.", carrier: "CAMRO is a project of Hundsrücker Tierschutz gUG" },
-  ro: { pageTitle: "Contact", h1: "Contact", lead: "Întrebări despre CAMRO? Vă vom contacta.", carrier: "CAMRO este un proiect al Hundsrücker Tierschutz gUG" }
+  de: {
+    pageTitle: "Kontakt",
+    h1: "Kontakt",
+    lead: "Fragen zu CAMRO? Wir melden uns zurück.",
+    routesTitle: "Worum geht es?",
+    r1t: "Sie vertreten eine Gemeinde", r1p: "Sie möchten Bedarf melden oder wissen, welche Voraussetzungen gelten.", r1a: "Informationen für Gemeinden",
+    r2t: "Sie möchten unterstützen", r2p: "Als Unternehmen, Organisation oder Privatperson mit Geld, Sachleistungen oder Fachwissen.", r2a: "Informationen für Unterstützer",
+    r3t: "Sie sind eine Organisation oder ein Kastrationsteam", r3p: "CAMRO baut ein nach Regionen sortiertes Verzeichnis auf. Die Aufnahme erfolgt über einen Prüf-Fragebogen.", r3a: "Aufnahme ins Verzeichnis anfragen",
+    carTitle: "Träger",
+    carText: "CAMRO ist ein Projekt der Hundsrücker Tierschutz gUG.",
+    dOrg: "Organisation", dAddr: "Anschrift", dCountry: "Deutschland", dPhone: "Telefon", dMail: "E-Mail", dFb: "CAMRO auf Facebook"
+  },
+  en: {
+    pageTitle: "Contact",
+    h1: "Contact",
+    lead: "Questions about CAMRO? We will get back to you.",
+    routesTitle: "What is it about?",
+    r1t: "You represent a municipality", r1p: "You want to report a need or find out which prerequisites apply.", r1a: "Information for municipalities",
+    r2t: "You want to support", r2p: "As a company, organisation or individual, with money, goods in kind or expertise.", r2a: "Information for supporters",
+    r3t: "You are an organisation or a neutering team", r3p: "CAMRO is building a directory sorted by region. Listing follows a review questionnaire.", r3a: "Ask to be listed",
+    carTitle: "Operator",
+    carText: "CAMRO is a project of Hundsrücker Tierschutz gUG.",
+    dOrg: "Organisation", dAddr: "Address", dCountry: "Germany", dPhone: "Phone", dMail: "Email", dFb: "CAMRO on Facebook"
+  },
+  ro: {
+    pageTitle: "Contact",
+    h1: "Contact",
+    lead: "Întrebări despre CAMRO? Vă vom contacta.",
+    routesTitle: "Despre ce este vorba?",
+    r1t: "Reprezentați o primărie", r1p: "Doriți să semnalați o nevoie sau să aflați ce condiții se aplică.", r1a: "Informații pentru primării",
+    r2t: "Doriți să sprijiniți", r2p: "Ca firmă, organizație sau persoană fizică, cu bani, bunuri sau expertiză.", r2a: "Informații pentru susținători",
+    r3t: "Sunteți o organizație sau o echipă de sterilizare", r3p: "CAMRO construiește un registru ordonat pe regiuni. Înscrierea se face pe baza unui chestionar de verificare.", r3a: "Solicitați înscrierea în registru",
+    carTitle: "Operator",
+    carText: "CAMRO este un proiect al Hundsrücker Tierschutz gUG.",
+    dOrg: "Organizație", dAddr: "Adresă", dCountry: "Germania", dPhone: "Telefon", dMail: "E-mail", dFb: "CAMRO pe Facebook"
+  }
 });
 </script>
 </body>
