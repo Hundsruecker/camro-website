@@ -8,7 +8,7 @@ window.CAMRO = (function () {
 
   var COMMON = {
     de: {
-      skip: "Zum Inhalt springen", navLabel: "Hauptnavigation", langLabel: "Sprache",
+      skip: "Zum Inhalt springen", navLabel: "Hauptnavigation", homeLabel: "CAMRO – Startseite", langLabel: "Sprache",
       nav: ["Start", "Für Gemeinden", "Kriterien & Transparenz", "Für Unterstützer", "Projekte", "Kontakt"],
       st: { active: "Aktive Kooperation", trial: "Probephase", none: "Noch kein Eintrag", special: "București (Sonderstatus)" },
       panelLabel: "Gemeldete Gemeinden", panelEmpty: "Aus diesem Kreis ist noch keine Gemeinde gemeldet.",
@@ -17,7 +17,7 @@ window.CAMRO = (function () {
       contactHead: "Kontakt", footProject: "CAMRO ist ein Projekt der Hundsrücker Tierschutz gUG"
     },
     en: {
-      skip: "Skip to content", navLabel: "Main navigation", langLabel: "Language",
+      skip: "Skip to content", navLabel: "Main navigation", homeLabel: "CAMRO – Home", langLabel: "Language",
       nav: ["Home", "For municipalities", "Criteria & Transparency", "For supporters", "Projects", "Contact"],
       st: { active: "Active cooperation", trial: "Probationary period", none: "No entry yet", special: "București (special status)" },
       panelLabel: "Registered municipalities", panelEmpty: "No municipality from this county has registered yet.",
@@ -26,7 +26,7 @@ window.CAMRO = (function () {
       contactHead: "Contact", footProject: "CAMRO is a project of Hundsrücker Tierschutz gUG"
     },
     ro: {
-      skip: "Salt la conținut", navLabel: "Navigare principală", langLabel: "Limba",
+      skip: "Salt la conținut", navLabel: "Navigare principală", homeLabel: "CAMRO – Pagina principală", langLabel: "Limba",
       nav: ["Acasă", "Pentru primării", "Criterii & Transparență", "Pentru susținători", "Proiecte", "Contact"],
       st: { active: "Cooperare activă", trial: "Perioadă de probă", none: "Încă nicio înregistrare", special: "București (statut special)" },
       panelLabel: "Primării înregistrate", panelEmpty: "Din acest județ nu s-a înregistrat încă nicio primărie.",
@@ -83,14 +83,16 @@ window.CAMRO = (function () {
   }
 
   function brand(tag) {
-    return '<' + tag + ' class="brand"' + (tag === "a" ? ' href="' + link("index.html") + '" aria-label="CAMRO"' : "") + '>' +
+    return '<' + tag + ' class="brand"' + (tag === "a" ? ' href="' + link("index.html") + '" aria-label="' + esc(COMMON[lang].homeLabel) + '"' : "") + '>' +
       '<svg width="40" height="31" aria-hidden="true"><use href="#camro-mark"/></svg><b>CAMRO</b></' + tag + '>';
   }
 
   function renderHeader() {
     var el = document.getElementById("site-header"); if (!el) return;
     var c = COMMON[lang], cur = document.body.getAttribute("data-page");
+    /* "Start" steht nicht im Menü: das Logo führt zur Startseite (in der Fußzeile bleibt "Start") */
     var nav = PAGES.map(function (p, i) {
+      if (p === "index.html") return "";
       return '<a href="' + link(p) + '"' + (p === cur ? ' aria-current="page"' : "") + '>' + esc(c.nav[i]) + '</a>';
     }).join("");
     var sw = LANGS.map(function (l) {
