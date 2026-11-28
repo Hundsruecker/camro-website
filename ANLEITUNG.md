@@ -58,3 +58,16 @@ Zusätzlich behält WordPress jede alte Fassung als Revision (Seite bearbeiten �
 
 Das Skript meldet es mit einem klaren Hinweis. Dann in Cloudflare die IP des VPS (76.13.9.75) als erlaubt eintragen
 oder den Bot-Schutz für die Dauer des Updates lockern.
+
+## Website-Symbol (Favicon)
+
+```
+python3 set_site_icon.py            # Probelauf, zeigt die alte Mediathek-ID
+python3 set_site_icon.py --apply    # neues CAMRO-Zeichen hochladen und setzen
+```
+Zurück zum alten Symbol: `python3 set_site_icon.py --restore <alte ID>`.
+
+## Facebook
+
+`medien/facebook-profilbild.png` (1080 × 1080) und `medien/facebook-titelbild-hell.png` bzw. `-dunkel.png` (1702 × 630).
+Neu erzeugen: `python3 medien/werkzeuge/facebook_bauen.py`
